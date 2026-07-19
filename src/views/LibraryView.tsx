@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { loadLibrary, CATEGORY_LABELS, type LibraryRow } from "../lib/library";
+import { DetailPanel } from "../components/DetailPanel";
 
 const pct = (v: number) => (v ? `${+v.toFixed(1)}` : "·");
 
@@ -33,6 +34,7 @@ export function LibraryView() {
   const [error, setError] = useState<string | null>(null);
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(null);
 
   useEffect(() => {
     loadLibrary().then(setRows).catch((e) => setError(String(e)));
@@ -132,7 +134,11 @@ export function LibraryView() {
                 <tr><td colSpan={11} className="px-4 py-10 text-center text-neutral-400">Loading library…</td></tr>
               )}
               {filtered.map((r) => (
-                <tr key={r.variantId} className="border-t border-neutral-100 hover:bg-neutral-50 dark:border-neutral-800/70 dark:hover:bg-neutral-900/40">
+                <tr
+                  key={r.variantId}
+                  onClick={() => setSelected(r.variantId)}
+                  className="cursor-pointer border-t border-neutral-100 hover:bg-neutral-50 dark:border-neutral-800/70 dark:hover:bg-neutral-900/40"
+                >
                   <td className="px-4 py-2.5">
                     <div className="font-medium text-neutral-800 dark:text-neutral-100">{r.chemicalName ?? "—"}</div>
                     <div className="text-xs text-neutral-400">{r.code ?? ""}</div>
@@ -163,6 +169,8 @@ export function LibraryView() {
           Showing {filtered.length} of {rows?.length ?? 0} · values are % w/w · seeded from the open library
         </p>
       </div>
+
+      <DetailPanel variantId={selected} onClose={() => setSelected(null)} />
     </div>
   );
 }
