@@ -16,6 +16,7 @@ export type LibraryRow = {
   code: string | null;
   category: string | null;
   hasOverrides: boolean;
+  isReference: boolean;
   nNo3: number; nNh4: number; p2o5: number; k2o: number; ca: number; mg: number; s: number;
 };
 
@@ -65,21 +66,36 @@ export async function loadLibrary(): Promise<LibraryRow[]> {
   if (inTauri()) return invoke<LibraryRow[]>("list_library");
   const data = await raw();
   const byId = new Map(data.canonicals.map((c) => [c.id, c]));
-  return data.variants
+  const variantRows = data.variants
     .map((v): LibraryRow | null => {
       const c = byId.get(v.canonicalId);
       if (!c) return null;
       const n = v.nutrients ?? {};
       return {
         variantId: v.id, brandName: v.brandName, manufacturer: v.manufacturer, country: v.country,
-        chemicalName: c.chemicalName, code: c.code, category: c.category, hasOverrides: !!v.hasOverrides,
+        chemicalName: c.chemicalName, code: c.code, category: c.category,
+        hasOverrides: !!v.hasOverrides, isReference: false,
         nNo3: num(n.nNo3), nNh4: num(n.nNh4), p2o5: num(n.p2o5), k2o: num(n.k2o),
         ca: num(n.ca), mg: num(n.mg), s: num(n.s),
       };
     })
-    .filter((r): r is LibraryRow => r !== null)
-    .sort((a, b) =>
-      (a.chemicalName ?? "").localeCompare(b.chemicalName ?? "") || (a.brandName ?? "").localeCompare(b.brandName ?? ""));
+    .filter((r): r is LibraryRow => r !== null);
+  // canonicals with no variant → brandless "reference" entries (nothing hidden)
+  const covered = new Set(data.variants.map((v) => v.canonicalId));
+  const refRows = data.canonicals
+    .filter((c) => !covered.has(c.id))
+    .map((c): LibraryRow => {
+      const n = c.nutrients ?? {};
+      return {
+        variantId: c.id, brandName: null, manufacturer: null, country: null,
+        chemicalName: c.chemicalName, code: c.code, category: c.category,
+        hasOverrides: false, isReference: true,
+        nNo3: num(n.nNo3), nNh4: num(n.nNh4), p2o5: num(n.p2o5), k2o: num(n.k2o),
+        ca: num(n.ca), mg: num(n.mg), s: num(n.s),
+      };
+    });
+  return [...variantRows, ...refRows].sort((a, b) =>
+    (a.chemicalName ?? "").localeCompare(b.chemicalName ?? "") || (a.brandName ?? "").localeCompare(b.brandName ?? ""));
 }
 
 /** Full detail for one variant: `variant_detail` in-app, else built from library.json. */
@@ -87,13 +103,15 @@ export async function loadDetail(variantId: string): Promise<VariantDetail | nul
   if (inTauri()) return invoke<VariantDetail | null>("variant_detail", { variantId });
   const data = await raw();
   const v = data.variants.find((x) => x.id === variantId);
-  if (!v) return null;
-  const c = data.canonicals.find((x) => x.id === v.canonicalId);
+  // variant-backed, or (for reference entries) a canonical looked up by its own id
+  const c = v ? data.canonicals.find((x) => x.id === v.canonicalId) : data.canonicals.find((x) => x.id === variantId);
   if (!c) return null;
-  const nutrients = Object.fromEntries(NUTRIENT_KEYS.map((k) => [k, num(v.nutrients?.[k])])) as Nutrients;
+  const nutSource = v ? v.nutrients : c.nutrients;
+  const nutrients = Object.fromEntries(NUTRIENT_KEYS.map((k) => [k, num(nutSource?.[k])])) as Nutrients;
   return {
-    variantId: v.id, brandName: v.brandName, manufacturer: v.manufacturer, country: v.country,
-    formFactor: v.formFactor ?? null, status: v.status ?? null, hasOverrides: !!v.hasOverrides,
+    variantId: v?.id ?? c.id, brandName: v?.brandName ?? null, manufacturer: v?.manufacturer ?? null,
+    country: v?.country ?? null, formFactor: v?.formFactor ?? null, status: v?.status ?? null,
+    hasOverrides: !!v?.hasOverrides,
     chemicalName: c.chemicalName, code: c.code, cas: c.cas ?? null, description: c.description ?? null,
     formula: c.formula ?? null, category: c.category, nutrients,
     physical: {
@@ -119,6 +137,7 @@ type RawLibrary = {
   canonicals: Array<{
     id: string; code: string | null; chemicalName: string | null; description?: string | null;
     formula?: string | null; cas?: string | null; category: string | null;
+    nutrients?: Partial<Record<NutrientKey, number | null>>;
     physical?: { densityGCm3?: number | null; solubilityGL25c?: number | null; ecMsCm1gL25c?: number | null; ph1pct25c?: number | null };
     assay?: { purityPct?: number | null; moisturePct?: number | null; insolublePct?: number | null };
     incompatibility?: { phosphates?: boolean; sulfates?: boolean; calcium?: boolean; borate?: boolean; highPhStock?: boolean };

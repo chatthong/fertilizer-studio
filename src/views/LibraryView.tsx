@@ -140,10 +140,19 @@ export function LibraryView() {
                   className="cursor-pointer border-t border-neutral-100 hover:bg-neutral-50 dark:border-neutral-800/70 dark:hover:bg-neutral-900/40"
                 >
                   <td className="px-4 py-2.5">
-                    <div className="font-medium text-neutral-800 dark:text-neutral-100">{r.chemicalName ?? "—"}</div>
+                    <div className="flex items-center gap-1.5 font-medium text-neutral-800 dark:text-neutral-100">
+                      {r.chemicalName ?? "—"}
+                      {r.hasOverrides && <span className="size-1.5 rounded-full bg-sky-400" title="Variant-adjusted nutrients" />}
+                    </div>
                     <div className="text-xs text-neutral-400">{r.code ?? ""}</div>
                   </td>
-                  <td className="px-4 py-2.5 text-neutral-600 dark:text-neutral-300">{r.brandName ?? "—"}</td>
+                  <td className="px-4 py-2.5 text-neutral-600 dark:text-neutral-300">
+                    {r.isReference ? (
+                      <span className="rounded bg-neutral-100 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-neutral-400 dark:bg-neutral-800">reference</span>
+                    ) : (
+                      r.brandName ?? "—"
+                    )}
+                  </td>
                   <td className="px-4 py-2.5 text-neutral-500">{r.country ?? "—"}</td>
                   <td className="px-4 py-2.5">
                     <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">

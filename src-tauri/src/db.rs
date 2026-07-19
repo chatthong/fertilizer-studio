@@ -10,7 +10,7 @@
 use rusqlite::{params, Connection};
 use serde::{Deserialize, Serialize};
 
-const SCHEMA_VERSION: i64 = 3;
+const SCHEMA_VERSION: i64 = 4;
 
 // ---- Shared-library seed shape (mirrors library/library.json, field-for-field) ----
 
@@ -40,8 +40,8 @@ struct SeedCanonical {
     form_factor: Option<String>,
     status: Option<String>,
     #[allow(dead_code)] image_url: Option<String>,
-    // canonical base nutrients — carried in library.json; the app reads VARIANT nutrients
-    #[allow(dead_code)] nutrients: SeedNutrients,
+    // canonical base nutrients — shown for reference compounds that have no variant
+    nutrients: SeedNutrients,
     physical: SeedPhysical,
     assay: SeedAssay,
     incompatibility: SeedIncompat,
@@ -147,6 +147,8 @@ pub struct LibraryRow {
     pub code: Option<String>,
     pub category: Option<String>,
     pub has_overrides: bool,
+    /// true = a canonical compound with no commercial variant (no brand/pricing)
+    pub is_reference: bool,
     pub n_no3: f64, pub n_nh4: f64, pub p2o5: f64, pub k2o: f64,
     pub ca: f64, pub mg: f64, pub s: f64,
 }
@@ -217,6 +219,11 @@ pub fn init_schema(conn: &Connection) -> rusqlite::Result<()> {
         CREATE TABLE IF NOT EXISTS canonical (
             id TEXT PRIMARY KEY, code TEXT, chemical_name TEXT, description TEXT, formula TEXT,
             cas TEXT, category TEXT, form_factor TEXT, status TEXT,
+            n_no3 REAL NOT NULL DEFAULT 0, n_nh4 REAL NOT NULL DEFAULT 0, p2o5 REAL NOT NULL DEFAULT 0,
+            k2o REAL NOT NULL DEFAULT 0, ca REAL NOT NULL DEFAULT 0, mg REAL NOT NULL DEFAULT 0,
+            s REAL NOT NULL DEFAULT 0, fe REAL NOT NULL DEFAULT 0, mn REAL NOT NULL DEFAULT 0,
+            zn REAL NOT NULL DEFAULT 0, b REAL NOT NULL DEFAULT 0, cu REAL NOT NULL DEFAULT 0,
+            si REAL NOT NULL DEFAULT 0, mo REAL NOT NULL DEFAULT 0, na REAL NOT NULL DEFAULT 0, cl REAL NOT NULL DEFAULT 0,
             density_g_cm3 REAL, solubility_g_l25c REAL, ec_ms_cm1g_l25c REAL, ph1pct25c REAL,
             assay_purity REAL, assay_moisture REAL, assay_insoluble REAL,
             inc_phosphates INTEGER NOT NULL DEFAULT 0, inc_sulfates INTEGER NOT NULL DEFAULT 0,
@@ -257,16 +264,20 @@ pub fn load_library(conn: &mut Connection, json: &str) -> Result<(usize, usize),
         tx.execute(&format!("DELETE FROM {t}"), []).map_err(|e| e.to_string())?;
     }
     for c in &seed.canonicals {
-        let (p, a, i) = (&c.physical, &c.assay, &c.incompatibility);
+        let (n, p, a, i) = (&c.nutrients, &c.physical, &c.assay, &c.incompatibility);
         tx.execute(
             "INSERT OR REPLACE INTO canonical
              (id, code, chemical_name, description, formula, cas, category, form_factor, status,
+              n_no3, n_nh4, p2o5, k2o, ca, mg, s, fe, mn, zn, b, cu, si, mo, na, cl,
               density_g_cm3, solubility_g_l25c, ec_ms_cm1g_l25c, ph1pct25c,
               assay_purity, assay_moisture, assay_insoluble,
               inc_phosphates, inc_sulfates, inc_calcium, inc_borate, inc_high_ph)
-             VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13,?14,?15,?16,?17,?18,?19,?20,?21)",
+             VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9, ?10,?11,?12,?13,?14,?15,?16,?17,?18,?19,?20,?21,?22,?23,?24,?25,
+                     ?26,?27,?28,?29, ?30,?31,?32, ?33,?34,?35,?36,?37)",
             params![
                 c.id, c.code, c.chemical_name, c.description, c.formula, c.cas, c.category, c.form_factor, c.status,
+                z(n.n_no3), z(n.n_nh4), z(n.p2o5), z(n.k2o), z(n.ca), z(n.mg), z(n.s), z(n.fe), z(n.mn),
+                z(n.zn), z(n.b), z(n.cu), z(n.si), z(n.mo), z(n.na), z(n.cl),
                 p.density_g_cm3, p.solubility_g_l25c, p.ec_ms_cm1g_l25c, p.ph1pct25c,
                 a.purity_pct, a.moisture_pct, a.insoluble_pct,
                 i.phosphates as i64, i.sulfates as i64, i.calcium as i64, i.borate as i64, i.high_ph_stock as i64,
@@ -314,24 +325,68 @@ pub fn seed_if_empty(conn: &mut Connection, json: &str) -> Result<(), String> {
 }
 
 pub fn list_library(conn: &Connection) -> Result<Vec<LibraryRow>, String> {
+    // Every commercial variant, PLUS any canonical compound that has no variant
+    // (shown as a brandless "reference" entry so nothing in the catalog is hidden).
     let mut stmt = conn
         .prepare(
             "SELECT v.id, v.brand_name, v.manufacturer, v.country, c.chemical_name, c.code, c.category,
-                    v.has_overrides, v.n_no3, v.n_nh4, v.p2o5, v.k2o, v.ca, v.mg, v.s
+                    v.has_overrides, 0 AS is_reference, v.n_no3, v.n_nh4, v.p2o5, v.k2o, v.ca, v.mg, v.s
              FROM variant v JOIN canonical c ON c.id = v.canonical_id
-             ORDER BY c.chemical_name, v.brand_name",
+             UNION ALL
+             SELECT c.id, NULL, NULL, NULL, c.chemical_name, c.code, c.category,
+                    0, 1 AS is_reference, c.n_no3, c.n_nh4, c.p2o5, c.k2o, c.ca, c.mg, c.s
+             FROM canonical c WHERE c.id NOT IN (SELECT canonical_id FROM variant)
+             ORDER BY chemical_name, brand_name",
         ).map_err(|e| e.to_string())?;
     let rows = stmt
         .query_map([], |row| {
             Ok(LibraryRow {
                 variant_id: row.get(0)?, brand_name: row.get(1)?, manufacturer: row.get(2)?,
                 country: row.get(3)?, chemical_name: row.get(4)?, code: row.get(5)?, category: row.get(6)?,
-                has_overrides: row.get::<_, i64>(7)? != 0,
-                n_no3: row.get(8)?, n_nh4: row.get(9)?, p2o5: row.get(10)?, k2o: row.get(11)?,
-                ca: row.get(12)?, mg: row.get(13)?, s: row.get(14)?,
+                has_overrides: row.get::<_, i64>(7)? != 0, is_reference: row.get::<_, i64>(8)? != 0,
+                n_no3: row.get(9)?, n_nh4: row.get(10)?, p2o5: row.get(11)?, k2o: row.get(12)?,
+                ca: row.get(13)?, mg: row.get(14)?, s: row.get(15)?,
             })
         }).map_err(|e| e.to_string())?;
     rows.collect::<rusqlite::Result<Vec<_>>>().map_err(|e| e.to_string())
+}
+
+/// Detail for a canonical compound that has no commercial variant (a reference entry).
+fn canonical_detail(conn: &Connection, canonical_id: &str) -> Result<Option<VariantDetail>, String> {
+    let mut stmt = conn
+        .prepare(
+            "SELECT chemical_name, code, cas, description, formula, category,
+                    n_no3, n_nh4, p2o5, k2o, ca, mg, s, fe, mn, zn, b, cu, si, mo, na, cl,
+                    density_g_cm3, solubility_g_l25c, ec_ms_cm1g_l25c, ph1pct25c,
+                    assay_purity, assay_moisture, assay_insoluble,
+                    inc_phosphates, inc_sulfates, inc_calcium, inc_borate, inc_high_ph
+             FROM canonical WHERE id = ?1",
+        ).map_err(|e| e.to_string())?;
+    let d = stmt
+        .query_row(params![canonical_id], |r| {
+            Ok(VariantDetail {
+                variant_id: canonical_id.to_string(),
+                brand_name: None, manufacturer: None, country: None, form_factor: None,
+                status: None, has_overrides: false,
+                chemical_name: r.get(0)?, code: r.get(1)?, cas: r.get(2)?, description: r.get(3)?,
+                formula: r.get(4)?, category: r.get(5)?,
+                nutrients: Nutrients {
+                    n_no3: r.get(6)?, n_nh4: r.get(7)?, p2o5: r.get(8)?, k2o: r.get(9)?, ca: r.get(10)?,
+                    mg: r.get(11)?, s: r.get(12)?, fe: r.get(13)?, mn: r.get(14)?, zn: r.get(15)?, b: r.get(16)?,
+                    cu: r.get(17)?, si: r.get(18)?, mo: r.get(19)?, na: r.get(20)?, cl: r.get(21)?,
+                },
+                physical: Physical {
+                    density_g_cm3: r.get(22)?, solubility_g_l25c: r.get(23)?, ec_ms_cm1g_l25c: r.get(24)?, ph1pct25c: r.get(25)?,
+                },
+                assay: Assay { purity_pct: r.get(26)?, moisture_pct: r.get(27)?, insoluble_pct: r.get(28)? },
+                incompatibility: Incompatibility {
+                    phosphates: r.get::<_, i64>(29)? != 0, sulfates: r.get::<_, i64>(30)? != 0,
+                    calcium: r.get::<_, i64>(31)? != 0, borate: r.get::<_, i64>(32)? != 0, high_ph_stock: r.get::<_, i64>(33)? != 0,
+                },
+                pricing: Vec::new(),
+            })
+        }).ok();
+    Ok(d)
 }
 
 pub fn variant_detail(conn: &Connection, variant_id: &str) -> Result<Option<VariantDetail>, String> {
@@ -368,7 +423,13 @@ pub fn variant_detail(conn: &Connection, variant_id: &str) -> Result<Option<Vari
                 pricing: Vec::new(),
             })
         }).ok();
-    let mut detail = match detail { Some(d) => d, None => return Ok(None) };
+    let mut detail = match detail {
+        Some(d) => d,
+        None => match canonical_detail(conn, variant_id)? {
+            Some(d) => d,
+            None => return Ok(None),
+        },
+    };
 
     let mut ps = conn
         .prepare("SELECT pack_size_kg, market, currency, price_per_pack, price_per_kg, incoterm, price_reference FROM pricing WHERE variant_id = ?1 ORDER BY pack_size_kg")
@@ -400,11 +461,28 @@ mod tests {
     fn seeds_real_data_without_archived() {
         let conn = seeded();
         let rows = list_library(&conn).unwrap();
-        assert_eq!(rows.len(), 20, "22 variants minus 2 archived");
+        let variants = rows.iter().filter(|r| !r.is_reference).count();
+        let refs = rows.iter().filter(|r| r.is_reference).count();
+        assert_eq!(variants, 20, "22 variants minus 2 archived");
         // no 'test' brand junk leaked through
         assert!(!rows.iter().any(|r| r.brand_name.as_deref() == Some("test")));
+        // every canonical with no variant appears as a reference entry (nothing hidden)
+        let with_variant: i64 = conn.query_row("SELECT COUNT(DISTINCT canonical_id) FROM variant", [], |r| r.get(0)).unwrap();
+        assert_eq!(refs as i64, 29 - with_variant, "no-variant canonicals shown as references");
+        assert!(refs > 0, "some compounds have no commercial variant");
         let aliases: i64 = conn.query_row("SELECT COUNT(*) FROM alias", [], |r| r.get(0)).unwrap();
         assert_eq!(aliases, 243, "aliases carried");
+    }
+
+    #[test]
+    fn reference_canonical_has_detail() {
+        let conn = seeded();
+        let rows = list_library(&conn).unwrap();
+        let refe = rows.iter().find(|r| r.is_reference).expect("a reference entry exists");
+        let d = variant_detail(&conn, &refe.variant_id).unwrap().expect("reference detail");
+        assert!(d.brand_name.is_none(), "reference entry has no brand");
+        assert!(d.pricing.is_empty(), "reference entry has no pricing");
+        assert_eq!(d.chemical_name, refe.chemical_name);
     }
 
     #[test]
