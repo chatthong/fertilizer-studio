@@ -63,6 +63,7 @@ export function DetailPanel({ variantId, onClose }: { variantId: string | null; 
               <Meta label="Manufacturer" value={detail.manufacturer} />
               <Meta label="Origin" value={detail.country} />
               <Meta label="Form" value={detail.formFactor} />
+              <Meta label="CAS" value={detail.cas} raw />
             </section>
 
             {detail.description && (
@@ -83,7 +84,14 @@ export function DetailPanel({ variantId, onClose }: { variantId: string | null; 
 
             {/* Nutrient profile */}
             <section>
-              <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-400">Nutrient profile (% w/w)</h3>
+              <h3 className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-neutral-400">
+                Nutrient profile (% w/w)
+                {detail.hasOverrides && (
+                  <span className="rounded bg-sky-100 px-1.5 py-0.5 text-[9px] normal-case tracking-normal text-sky-700 dark:bg-sky-950/50 dark:text-sky-300" title="This variant's nutrients differ from the base compound (per-variant overrides applied)">
+                    variant-adjusted
+                  </span>
+                )}
+              </h3>
               {nutrients.length === 0 ? (
                 <p className="text-neutral-400 text-xs">No nutrient content recorded.</p>
               ) : (
@@ -109,6 +117,7 @@ export function DetailPanel({ variantId, onClose }: { variantId: string | null; 
                 <Meta label="Solubility" value={fmt(detail.physical.solubilityGL25c, " g/L")} raw />
                 <Meta label="EC (1 g/L)" value={fmt(detail.physical.ecMsCm1gL25c, " mS/cm")} raw />
                 <Meta label="pH (1%)" value={fmt(detail.physical.ph1pct25c)} raw />
+                <Meta label="Assay purity" value={fmt(detail.assay.purityPct, "%")} raw />
               </div>
             </section>
 

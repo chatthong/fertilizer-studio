@@ -1,10 +1,14 @@
 {
-  "schemaVersion": 1,
-  "source": "Extracted from CropBinary production DB dump (2026-07-19).",
+  "schemaVersion": 2,
+  "source": "Extracted from CropBinary production DB dump.",
+  "overridePolicy": "nutrient overrides applied at variant level (matches legacy buildResolvedNutrients, status-ignoring)",
   "counts": {
     "canonicals": 29,
-    "variants": 22,
-    "pricing": 24
+    "variants": 20,
+    "pricing": 22,
+    "aliases": 243,
+    "overridesApplied": 18,
+    "archivedVariantsExcluded": 2
   },
   "canonicals": [
     {
@@ -38,9 +42,15 @@
       },
       "physical": {
         "densityGCm3": 2.66,
+        "bulkDensityKgM3": 1100,
         "solubilityGL25c": 111,
         "ecMsCm1gL25c": null,
         "ph1pct25c": 7
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": 0.5,
+        "insolublePct": 0.05
       },
       "incompatibility": {
         "phosphates": false,
@@ -48,7 +58,11 @@
         "calcium": true,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Not classified as hazardous under GHS; avoid dust inhalation; rinse spills with water."
     },
     {
       "id": "e80836d6-86cf-4a9a-9cb8-217c69b30c3f",
@@ -81,9 +95,15 @@
       },
       "physical": {
         "densityGCm3": 0.93,
+        "bulkDensityKgM3": 690,
         "solubilityGL25c": 800,
         "ecMsCm1gL25c": 0.4,
         "ph1pct25c": 7
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": 10,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": false,
@@ -91,7 +111,18 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [
+        "Fertilizer Grade",
+        "FCC",
+        "USP",
+        "REACH"
+      ],
+      "hazardGhsCodes": [
+        "GHS07"
+      ],
+      "hazardNotes": "Chelate can mobilize heavy metals in solution; avoid strong acids that can protonate EDTA and release Ca."
     },
     {
       "id": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
@@ -124,9 +155,15 @@
       },
       "physical": {
         "densityGCm3": 2.1,
+        "bulkDensityKgM3": 1000,
         "solubilityGL25c": 1210,
         "ecMsCm1gL25c": 1.2,
         "ph1pct25c": 5.5
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": 0.2,
+        "insolublePct": 0.02
       },
       "incompatibility": {
         "phosphates": true,
@@ -134,7 +171,17 @@
         "calcium": false,
         "borate": true,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [
+        "Fertilizer Grade",
+        "Greenhouse Grade"
+      ],
+      "hazardGhsCodes": [
+        "GHS03",
+        "GHS07"
+      ],
+      "hazardNotes": "Oxidizing salt; may intensify fire. Avoid dust generation and contamination with organic materials. Store cool and dry."
     },
     {
       "id": "2f433224-3a90-49b0-a05f-615e7b54bfdb",
@@ -167,9 +214,15 @@
       },
       "physical": {
         "densityGCm3": 0.95,
+        "bulkDensityKgM3": 1100,
         "solubilityGL25c": 105,
         "ecMsCm1gL25c": 0.35,
         "ph1pct25c": 5
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": null,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": true,
@@ -177,7 +230,14 @@
         "calcium": true,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [
+        "Fertilizer Grade",
+        "Greenhouse Grade"
+      ],
+      "hazardGhsCodes": [],
+      "hazardNotes": null
     },
     {
       "id": "32f7cd95-ce1a-48ef-9dc8-f69527540d7e",
@@ -210,9 +270,15 @@
       },
       "physical": {
         "densityGCm3": 2.34,
+        "bulkDensityKgM3": 1100,
         "solubilityGL25c": 230,
         "ecMsCm1gL25c": 0.68,
         "ph1pct25c": 4.5
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": 0.2,
+        "insolublePct": 0.05
       },
       "incompatibility": {
         "phosphates": false,
@@ -220,7 +286,11 @@
         "calcium": true,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Generally not classified as hazardous; avoid dust inhalation."
     },
     {
       "id": "43587206-09ec-4449-a10c-366161e0cef8",
@@ -253,9 +323,15 @@
       },
       "physical": {
         "densityGCm3": 2.1,
+        "bulkDensityKgM3": 950,
         "solubilityGL25c": 316,
         "ecMsCm1gL25c": 1.1,
         "ph1pct25c": 6.2
+      },
+      "assay": {
+        "purityPct": 99.5,
+        "moisturePct": 0.3,
+        "insolublePct": 0.02
       },
       "incompatibility": {
         "phosphates": false,
@@ -263,7 +339,14 @@
         "calcium": false,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS03",
+        "GHS07"
+      ],
+      "hazardNotes": "Oxidizing solid; may intensify fire. Avoid contamination with organic materials."
     },
     {
       "id": "e668496a-69f1-4492-85f6-ca041a58f4ea",
@@ -296,9 +379,15 @@
       },
       "physical": {
         "densityGCm3": 2.5,
+        "bulkDensityKgM3": 650,
         "solubilityGL25c": 148,
         "ecMsCm1gL25c": null,
         "ph1pct25c": 11.3
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": 0.5,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": true,
@@ -306,7 +395,17 @@
         "calcium": true,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [
+        "Fertilizer Grade",
+        "Greenhouse Grade"
+      ],
+      "hazardGhsCodes": [
+        "GHS05",
+        "GHS07"
+      ],
+      "hazardNotes": "Strongly alkaline; causes severe skin and eye burns; PPE required."
     },
     {
       "id": "5d3a7e8f-d367-4434-852a-20fac9008443",
@@ -339,9 +438,15 @@
       },
       "physical": {
         "densityGCm3": 1.68,
+        "bulkDensityKgM3": 900,
         "solubilityGL25c": 710,
         "ecMsCm1gL25c": 1.2,
         "ph1pct25c": 5.5
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": 0.5,
+        "insolublePct": 0.05
       },
       "incompatibility": {
         "phosphates": false,
@@ -349,7 +454,15 @@
         "calcium": true,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [
+        "Fertilizer Grade",
+        "Greenhouse Grade",
+        "Horticultural Grade"
+      ],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Not classified as hazardous under GHS; dust may cause mild irritation. Store dry and sealed."
     },
     {
       "id": "c587bbe3-0c07-4bfa-bf99-fdc3df6a1cb8",
@@ -382,9 +495,15 @@
       },
       "physical": {
         "densityGCm3": null,
+        "bulkDensityKgM3": null,
         "solubilityGL25c": null,
         "ecMsCm1gL25c": null,
         "ph1pct25c": null
+      },
+      "assay": {
+        "purityPct": null,
+        "moisturePct": null,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": false,
@@ -392,7 +511,11 @@
         "calcium": false,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Avoid high-pH stock to limit ammonia loss; standard PPE as for ammonium salts."
     },
     {
       "id": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
@@ -425,9 +548,15 @@
       },
       "physical": {
         "densityGCm3": 1.74,
+        "bulkDensityKgM3": 650,
         "solubilityGL25c": 700,
         "ecMsCm1gL25c": 1.2,
         "ph1pct25c": 6
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": 2,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": true,
@@ -435,7 +564,14 @@
         "calcium": false,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS07",
+        "GHS09"
+      ],
+      "hazardNotes": "Harmful if swallowed; causes eye/skin irritation; very toxic to aquatic life with long-lasting effects. Avoid release to the environment."
     },
     {
       "id": "5789c479-298b-477e-b274-d6bd0fa145a8",
@@ -468,9 +604,15 @@
       },
       "physical": {
         "densityGCm3": 2.66,
+        "bulkDensityKgM3": 1100,
         "solubilityGL25c": 111,
         "ecMsCm1gL25c": 1.05,
         "ph1pct25c": 7
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": 1,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": false,
@@ -478,7 +620,11 @@
         "calcium": true,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Low acute toxicity; dust may irritate eyes/respiratory tract. Store dry; avoid mixing with calcium salts in concentrated stocks."
     },
     {
       "id": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
@@ -511,9 +657,15 @@
       },
       "physical": {
         "densityGCm3": 1.32,
+        "bulkDensityKgM3": 790,
         "solubilityGL25c": 545,
         "ecMsCm1gL25c": null,
         "ph1pct25c": 7.2
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": 0.5,
+        "insolublePct": 0.05
       },
       "incompatibility": {
         "phosphates": false,
@@ -521,7 +673,14 @@
         "calcium": false,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [
+        "Fertilizer Grade",
+        "Low Biuret (grade-dependent)"
+      ],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Generally not GHS-classified; avoid dust inhalation. Keep dry to prevent caking. In concentrated/alkaline stocks, hydrolysis can increase ammonia release; store solutions cool and avoid high pH storage."
     },
     {
       "id": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
@@ -554,9 +713,15 @@
       },
       "physical": {
         "densityGCm3": 1.98,
+        "bulkDensityKgM3": 1050,
         "solubilityGL25c": 344,
         "ecMsCm1gL25c": 1.9,
         "ph1pct25c": 7
+      },
+      "assay": {
+        "purityPct": 95,
+        "moisturePct": 0.5,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": false,
@@ -564,7 +729,11 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Low hazard; manage dust and avoid eye contact; hygroscopicity can cause caking depending on grade and humidity."
     },
     {
       "id": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
@@ -597,9 +766,15 @@
       },
       "physical": {
         "densityGCm3": 1.44,
+        "bulkDensityKgM3": 900,
         "solubilityGL25c": 47,
         "ecMsCm1gL25c": 0.1,
         "ph1pct25c": 5.1
+      },
+      "assay": {
+        "purityPct": 99.5,
+        "moisturePct": 0.1,
+        "insolublePct": 0.05
       },
       "incompatibility": {
         "phosphates": false,
@@ -607,7 +782,13 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": "Generally compatible with most fertilizers. Pre-dissolving in warm water is recommended before adding to stock tanks.",
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS08"
+      ],
+      "hazardNotes": "May damage fertility or the unborn child (H360FD). Handle with care and avoid inhalation of dust."
     },
     {
       "id": "143fc813-d1ef-4a72-9617-20b90312c51e",
@@ -640,9 +821,15 @@
       },
       "physical": {
         "densityGCm3": 1.8,
+        "bulkDensityKgM3": 900,
         "solubilityGL25c": 370,
         "ecMsCm1gL25c": 0.8,
         "ph1pct25c": 4.5
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": 0.2,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": false,
@@ -650,7 +837,11 @@
         "calcium": true,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Acidic aqueous solution; dust may irritate eyes/respiratory tract; avoid mixing with calcium salts in concentrated form."
     },
     {
       "id": "39624069-3199-47ba-9d86-8f17750885f4",
@@ -683,9 +874,15 @@
       },
       "physical": {
         "densityGCm3": null,
+        "bulkDensityKgM3": 977.1,
         "solubilityGL25c": null,
         "ecMsCm1gL25c": null,
         "ph1pct25c": null
+      },
+      "assay": {
+        "purityPct": null,
+        "moisturePct": null,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": true,
@@ -693,7 +890,11 @@
         "calcium": false,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": "For concentrated fertigation stocks, keep calcium-containing nitrogen sources separated from phosphates and sulfates to avoid precipitation/scaling. Many CAN grades include limestone/dolomite and are not fully water-soluble; use only if the grade is specified as fully water-soluble for injection systems.",
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Hygroscopic; avoid caking by keeping sealed and dry. Prevent contamination with fuels/organic materials during storage and handling."
     },
     {
       "id": "ef694469-467f-4b3d-872e-76394fd4f2dc",
@@ -726,9 +927,15 @@
       },
       "physical": {
         "densityGCm3": 1.619,
+        "bulkDensityKgM3": 930,
         "solubilityGL25c": 690,
         "ecMsCm1gL25c": null,
         "ph1pct25c": 8
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": 0.5,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": false,
@@ -736,7 +943,13 @@
         "calcium": true,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": "Keep DAP (phosphate) in a separate stock tank from calcium salts (e.g., calcium nitrate, CaCl2) to prevent insoluble calcium phosphate formation in concentrates. Avoid alkaline stock conditions; high pH increases precipitation risk with hardness and can shift NH4+/NH3 equilibrium. Prefer injecting into flowing water; avoid localized high concentration zones and purge lines when switching between Ca and phosphate feeds.",
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS07"
+      ],
+      "hazardNotes": "Dust and concentrated contact can irritate eyes/skin/respiratory tract; use eye protection and dust control/respiratory protection as needed. When heated to decomposition, may release ammonia and phosphorus/nitrogen oxides. Hygroscopic tendency can increase caking; store dry and sealed."
     },
     {
       "id": "f3c6c153-5734-49e8-9907-9782a149f296",
@@ -769,9 +982,15 @@
       },
       "physical": {
         "densityGCm3": 1.619,
+        "bulkDensityKgM3": 950,
         "solubilityGL25c": 575,
         "ecMsCm1gL25c": 1.1,
         "ph1pct25c": 7.8
+      },
+      "assay": {
+        "purityPct": null,
+        "moisturePct": null,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": false,
@@ -779,7 +998,11 @@
         "calcium": true,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": "Do not concentrate-mix with calcium salts (e.g., calcium nitrate, CaCl2) due to insoluble calcium phosphate precipitation risk. In fertigation, keep phosphate sources in a separate stock tank from calcium; avoid alkaline/high-hardness concentrates and prevent localized high-concentration zones during injection. Flush/purge lines when alternating between Ca and phosphate feeds.",
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Fertilizer-grade DAP is commonly treated as low acute hazard, but dust can mechanically irritate eyes/skin/respiratory tract; apply standard dust control and PPE. Thermal decomposition can release ammonia and phosphorus/nitrogen oxides."
     },
     {
       "id": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
@@ -812,9 +1035,15 @@
       },
       "physical": {
         "densityGCm3": 1.607,
+        "bulkDensityKgM3": 650,
         "solubilityGL25c": 110,
         "ecMsCm1gL25c": 0,
         "ph1pct25c": 3
+      },
+      "assay": {
+        "purityPct": 92,
+        "moisturePct": 8,
+        "insolublePct": 0
       },
       "incompatibility": {
         "phosphates": false,
@@ -822,7 +1051,11 @@
         "calcium": false,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": "Avoid high-pH stock solutions; dust may be generated. (SDS)",
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Not classified as hazardous (GHS). Avoid dust inhalation; may cause temporary irritation."
     },
     {
       "id": "05e47ae5-8904-44df-b1ed-acd0d9ae399f",
@@ -855,9 +1088,15 @@
       },
       "physical": {
         "densityGCm3": null,
+        "bulkDensityKgM3": null,
         "solubilityGL25c": null,
         "ecMsCm1gL25c": null,
         "ph1pct25c": null
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": null,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": false,
@@ -865,7 +1104,11 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": null
     },
     {
       "id": "aad4c9b0-d145-4de4-ac9d-822ddde69ca3",
@@ -898,9 +1141,15 @@
       },
       "physical": {
         "densityGCm3": 1.98,
+        "bulkDensityKgM3": null,
         "solubilityGL25c": 580,
         "ecMsCm1gL25c": null,
         "ph1pct25c": 5
+      },
+      "assay": {
+        "purityPct": null,
+        "moisturePct": null,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": false,
@@ -908,7 +1157,14 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS05",
+        "GHS07"
+      ],
+      "hazardNotes": "H302 Harmful if swallowed; H318 Causes serious eye damage (Valudor SDS)."
     },
     {
       "id": "a30eee25-459b-474f-96cc-215c68790e2a",
@@ -941,9 +1197,15 @@
       },
       "physical": {
         "densityGCm3": 1.72,
+        "bulkDensityKgM3": 960,
         "solubilityGL25c": 1500,
         "ecMsCm1gL25c": 1.6,
         "ph1pct25c": 5
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": 0.3,
+        "insolublePct": 0.05
       },
       "incompatibility": {
         "phosphates": false,
@@ -951,7 +1213,14 @@
         "calcium": false,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": "Do not mix with limestone or high pH products (releases ammonia gas). Caution when mixing with Potassium Chloride (KCl) in dry blends due to potential chemical instability.",
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS03",
+        "GHS07"
+      ],
+      "hazardNotes": "May intensify fire; oxidizer (H272). Causes serious eye irritation (H319)."
     },
     {
       "id": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
@@ -984,9 +1253,15 @@
       },
       "physical": {
         "densityGCm3": 1.85,
+        "bulkDensityKgM3": 900,
         "solubilityGL25c": 745,
         "ecMsCm1gL25c": 1.3,
         "ph1pct25c": 8
+      },
+      "assay": {
+        "purityPct": 77,
+        "moisturePct": 20,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": true,
@@ -994,7 +1269,13 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": "Incompatible with Sulfates (forms Gypsum) and Phosphates (forms Calcium Phosphate precipitate). Use in a separate stock tank or apply individually.",
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS07"
+      ],
+      "hazardNotes": "Causes serious eye irritation (H319). Wash hands thoroughly after handling."
     },
     {
       "id": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
@@ -1027,9 +1308,15 @@
       },
       "physical": {
         "densityGCm3": 1.57,
+        "bulkDensityKgM3": 850,
         "solubilityGL25c": 2350,
         "ecMsCm1gL25c": 1.1,
         "ph1pct25c": 6
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": 45,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": false,
@@ -1037,7 +1324,11 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": "Compatible with most soluble fertilizers. Often used in 'Tank B' (Phosphate/Sulfate) stock solutions in hydroponics, as it does not precipitate with Sulfates or Phosphates at standard stock concentrations.",
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Not classified as hazardous, but may cause mild skin or eye irritation upon contact due to salt concentration."
     },
     {
       "id": "1c26053f-672c-4457-9fc8-84fae1b19efa",
@@ -1070,9 +1361,15 @@
       },
       "physical": {
         "densityGCm3": 0.65,
+        "bulkDensityKgM3": 650,
         "solubilityGL25c": 60,
         "ecMsCm1gL25c": 0.45,
         "ph1pct25c": 8
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": 0.5,
+        "insolublePct": 0.1
       },
       "incompatibility": {
         "phosphates": false,
@@ -1080,7 +1377,13 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": "Compatible with most fertilizers and pesticides. Do not mix with strong acids or concentrated copper/zinc products which may displace the iron.",
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS09"
+      ],
+      "hazardNotes": "Harmful to aquatic life with long lasting effects (H412). Generally non-hazardous to humans under normal use."
     },
     {
       "id": "23030299-1500-43ea-83ed-f611f161a813",
@@ -1113,9 +1416,15 @@
       },
       "physical": {
         "densityGCm3": 1.77,
+        "bulkDensityKgM3": 960,
         "solubilityGL25c": 754,
         "ecMsCm1gL25c": 1.5,
         "ph1pct25c": 5.5
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": 0.2,
+        "insolublePct": 0.05
       },
       "incompatibility": {
         "phosphates": false,
@@ -1123,7 +1432,13 @@
         "calcium": true,
         "borate": false,
         "highPhStock": true
-      }
+      },
+      "compatibilityNotes": "Do not mix with Calcium Nitrate (forms insoluble Calcium Sulfate/Gypsum). Avoid mixing with high pH products (e.g., Potassium Carbonate/Silicate) to prevent Ammonia gas release.",
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS07"
+      ],
+      "hazardNotes": "May cause respiratory irritation (H335), skin irritation (H315), and eye irritation (H319)."
     },
     {
       "id": "7532b445-2130-4df1-ab1a-a79151a051e1",
@@ -1156,9 +1471,15 @@
       },
       "physical": {
         "densityGCm3": 1.46,
+        "bulkDensityKgM3": 750,
         "solubilityGL25c": 751,
         "ecMsCm1gL25c": 0.88,
         "ph1pct25c": 6.5
+      },
+      "assay": {
+        "purityPct": 99,
+        "moisturePct": null,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": true,
@@ -1166,7 +1487,11 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Per Yara SDS: not classified as hazardous under CLP; can create slippery surfaces when wet; keep away from organic materials, oil and grease."
     },
     {
       "id": "941820ea-1c4c-4ca9-bcf2-d34b1aca65a7",
@@ -1199,9 +1524,15 @@
       },
       "physical": {
         "densityGCm3": 2.28,
+        "bulkDensityKgM3": null,
         "solubilityGL25c": 317,
         "ecMsCm1gL25c": null,
         "ph1pct25c": 4.1
+      },
+      "assay": {
+        "purityPct": 98,
+        "moisturePct": null,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": false,
@@ -1209,7 +1540,15 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [
+        "GHS05",
+        "GHS07",
+        "GHS09"
+      ],
+      "hazardNotes": "H302 Harmful if swallowed; H318 Causes serious eye damage; H400/H410 very toxic to aquatic life (ChemSupply SDS)."
     },
     {
       "id": "b4ebffd1-fe0c-4a0f-92db-e38a3d4634a7",
@@ -1242,9 +1581,15 @@
       },
       "physical": {
         "densityGCm3": null,
+        "bulkDensityKgM3": null,
         "solubilityGL25c": null,
         "ecMsCm1gL25c": null,
         "ph1pct25c": null
+      },
+      "assay": {
+        "purityPct": null,
+        "moisturePct": null,
+        "insolublePct": null
       },
       "incompatibility": {
         "phosphates": false,
@@ -1252,251 +1597,2222 @@
         "calcium": false,
         "borate": false,
         "highPhStock": false
-      }
+      },
+      "compatibilityNotes": null,
+      "certsLabels": [],
+      "hazardGhsCodes": [],
+      "hazardNotes": "Toxic to humans and irritating to eyes/skin (ChemicalBook)."
+    }
+  ],
+  "aliases": [
+    {
+      "canonicalId": "5789c479-298b-477e-b274-d6bd0fa145a8",
+      "alias": "K2SO4",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5789c479-298b-477e-b274-d6bd0fa145a8",
+      "alias": "Potassium sulphate",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5789c479-298b-477e-b274-d6bd0fa145a8",
+      "alias": "SOP 0-0-50-18S",
+      "aliasType": "brand",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5789c479-298b-477e-b274-d6bd0fa145a8",
+      "alias": "Sulfate of Potash",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5789c479-298b-477e-b274-d6bd0fa145a8",
+      "alias": "โพแทสเซียมซัลเฟต",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "7532b445-2130-4df1-ab1a-a79151a051e1",
+      "alias": "Magnesium dinitrate hexahydrate",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "7532b445-2130-4df1-ab1a-a79151a051e1",
+      "alias": "Magnesium nitrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "7532b445-2130-4df1-ab1a-a79151a051e1",
+      "alias": "Magnesium nitrate hexahydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "7532b445-2130-4df1-ab1a-a79151a051e1",
+      "alias": "Mg(NO3)2·6H2O",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "7532b445-2130-4df1-ab1a-a79151a051e1",
+      "alias": "Nitric acid magnesium salt hexahydrate",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "7532b445-2130-4df1-ab1a-a79151a051e1",
+      "alias": "แมกนีเซียมไนเตรต",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "DTPA 철 (Fe-DTPA 11%)",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "Ammonium nitrate",
+      "aliasType": "common",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "AN fertilizer",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "34-0-0",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "แอมโมเนียมไนเตรต",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "ปุ๋ย 34-0-0",
+      "aliasType": "search",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "硝酸アンモニウム",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "硝安",
+      "aliasType": "common",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "질산암모늄",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "질안",
+      "aliasType": "common",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "硝酸铵",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "硝铵",
+      "aliasType": "common",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "硝酸銨",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "Amoni nitrat",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "Đạm 2 lá",
+      "aliasType": "common",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "Nitrato de amonio",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "a30eee25-459b-474f-96cc-215c68790e2a",
+      "alias": "Nitrato amónico",
+      "aliasType": "common",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "DTPA-Fe 11%",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "DTPA铁(Fe-DTPA 11%)",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "Fe-DTPA",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "c587bbe3-0c07-4bfa-bf99-fdc3df6a1cb8",
+      "alias": "Ammonium Tetraborate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "c587bbe3-0c07-4bfa-bf99-fdc3df6a1cb8",
+      "alias": "DAB",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "c587bbe3-0c07-4bfa-bf99-fdc3df6a1cb8",
+      "alias": "Diammonium Borate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "c587bbe3-0c07-4bfa-bf99-fdc3df6a1cb8",
+      "alias": "Diammonium Tetraborate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "AgSil",
+      "aliasType": "brand",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "E560",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "K2SiO3",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "KASIL",
+      "aliasType": "brand",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "Liquid Glass",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "Potassium Metasilicate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "Potassium Silicate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "Soluble Silicon",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "Waterglass",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "alias": "ซิลิเคตโพแทสเซียม",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e80836d6-86cf-4a9a-9cb8-217c69b30c3f",
+      "alias": "Ca-EDTA",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e80836d6-86cf-4a9a-9cb8-217c69b30c3f",
+      "alias": "CaNa2EDTA",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e80836d6-86cf-4a9a-9cb8-217c69b30c3f",
+      "alias": "Calcium EDTA",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e80836d6-86cf-4a9a-9cb8-217c69b30c3f",
+      "alias": "Dissolvine E-CA-10",
+      "aliasType": "brand",
+      "langCode": null
+    },
+    {
+      "canonicalId": "e80836d6-86cf-4a9a-9cb8-217c69b30c3f",
+      "alias": "Edetate calcium disodium",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5d3a7e8f-d367-4434-852a-20fac9008443",
+      "alias": "Magnesium Sulfate Heptahydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5d3a7e8f-d367-4434-852a-20fac9008443",
+      "alias": "Magnesium Sulphate Heptahydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5d3a7e8f-d367-4434-852a-20fac9008443",
+      "alias": "Epsom Salt",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "2f433224-3a90-49b0-a05f-615e7b54bfdb",
+      "alias": "Fe-EDTA",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "2f433224-3a90-49b0-a05f-615e7b54bfdb",
+      "alias": "Ferric sodium EDTA",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "2f433224-3a90-49b0-a05f-615e7b54bfdb",
+      "alias": "Iron EDTA 13%",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "2f433224-3a90-49b0-a05f-615e7b54bfdb",
+      "alias": "Sodium feredetate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5d3a7e8f-d367-4434-852a-20fac9008443",
+      "alias": "แมกนีเซียมซัลเฟต เฮปตาไฮเดรต",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5d3a7e8f-d367-4434-852a-20fac9008443",
+      "alias": "ดีเกลือฝรั่ง",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "5d3a7e8f-d367-4434-852a-20fac9008443",
+      "alias": "MgSO4·7H2O",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "05e47ae5-8904-44df-b1ed-acd0d9ae399f",
+      "alias": "Manganese sulfate monohydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "05e47ae5-8904-44df-b1ed-acd0d9ae399f",
+      "alias": "Manganese(II) sulfate monohydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "05e47ae5-8904-44df-b1ed-acd0d9ae399f",
+      "alias": "Manganous sulfate monohydrate",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "43587206-09ec-4449-a10c-366161e0cef8",
+      "alias": "Hydroponic KNO3",
+      "aliasType": "brand",
+      "langCode": null
+    },
+    {
+      "canonicalId": "43587206-09ec-4449-a10c-366161e0cef8",
+      "alias": "KNO3 fertilizer",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "43587206-09ec-4449-a10c-366161e0cef8",
+      "alias": "Nitrate of Potash",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "43587206-09ec-4449-a10c-366161e0cef8",
+      "alias": "Saltpeter",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "43587206-09ec-4449-a10c-366161e0cef8",
+      "alias": "โพแทสเซียมไนเตรต",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "alias": "15.5-0-0+19Ca",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "alias": "CAN",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "alias": "Calcium Ammonium Nitrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "alias": "Calcium Nitrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "alias": "แคลเซียมแอมโมเนียมไนเตรต",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "alias": "แคลเซียมไนเตรต",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "alias": "硝酸カルシウム",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "Ferric sodium diethylenetriamine pentaacetate",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "Hierro DTPA (Fe-DTPA 11%)",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "Sodium hydrogen ferric DTPA",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "Sắt DTPA (Fe-DTPA 11%)",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "เหล็ก DTPA (Fe-DTPA 11%)",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "ee3df7b1-0403-4ca4-b950-90a677e556d1",
+      "alias": "鉄DTPA (Fe-DTPA 11%)",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "46-0-0",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "Carbonic diamide",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "Carbamide",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "CO(NH2)2",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "Granular Urea",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "Prilled Urea",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "ยูเรีย",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "尿素",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "요소",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "尿素",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "Urê",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "alias": "Urea",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "Ammonium Hydrogen Phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "Ammonium Phosphate Dibasic",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "DAP",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "DAP 20-53-0",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "eaa9daef-6419-4a5a-9a8a-451769c560fe",
+      "alias": "Potassium sulphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "143fc813-d1ef-4a72-9617-20b90312c51e",
+      "alias": "12-61-0",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "143fc813-d1ef-4a72-9617-20b90312c51e",
+      "alias": "Ammonium dihydrogen phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "143fc813-d1ef-4a72-9617-20b90312c51e",
+      "alias": "Ammonium phosphate monobasic",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "143fc813-d1ef-4a72-9617-20b90312c51e",
+      "alias": "MAP",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "143fc813-d1ef-4a72-9617-20b90312c51e",
+      "alias": "Monoammonium Phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "143fc813-d1ef-4a72-9617-20b90312c51e",
+      "alias": "NH4H2PO4",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "941820ea-1c4c-4ca9-bcf2-d34b1aca65a7",
+      "alias": "Blue vitriol",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "941820ea-1c4c-4ca9-bcf2-d34b1aca65a7",
+      "alias": "Copper sulfate pentahydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "941820ea-1c4c-4ca9-bcf2-d34b1aca65a7",
+      "alias": "Cupric sulfate pentahydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "32f7cd95-ce1a-48ef-9dc8-f69527540d7e",
+      "alias": "KH2PO4",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "32f7cd95-ce1a-48ef-9dc8-f69527540d7e",
+      "alias": "MKP",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "32f7cd95-ce1a-48ef-9dc8-f69527540d7e",
+      "alias": "Monopotassium phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "32f7cd95-ce1a-48ef-9dc8-f69527540d7e",
+      "alias": "Potassium dihydrogen phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "32f7cd95-ce1a-48ef-9dc8-f69527540d7e",
+      "alias": "Potassium phosphate monobasic",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "32f7cd95-ce1a-48ef-9dc8-f69527540d7e",
+      "alias": "โพแทสเซียมไดไฮโดรเจนฟอสเฟต",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "Cloruro de potasio",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "Kali clorua",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "MOP",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "Muriate of Potash",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "Potash (KCl)",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "Potassium chloride",
+      "aliasType": "locale",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "โพแทสเซียมคลอไรด์",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "塩化カリウム",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "氯化钾",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "6ae46ff0-b3f3-4a0a-87c7-e3967e2616cd",
+      "alias": "염화칼륨",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "alias": "Copper EDTA 14%",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "alias": "Copper(II) EDTA chelate",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "alias": "Cu-EDTA 14%",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "alias": "Disodium copper EDTA",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "alias": "Na2[Cu(EDTA)]·2H2O",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "alias": "คอปเปอร์ อีดีทีเอ 14%",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "eaa9daef-6419-4a5a-9a8a-451769c560fe",
+      "alias": "SOP",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "eaa9daef-6419-4a5a-9a8a-451769c560fe",
+      "alias": "Sulfate of Potash",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "eaa9daef-6419-4a5a-9a8a-451769c560fe",
+      "alias": "โพแทสเซียมซัลเฟต",
+      "aliasType": "locale",
+      "langCode": null
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "CAN",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "Calcium ammonium nitrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "Nitro-limestone",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "Nitrochalk",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "Calcium Ammonium Nitrate (CAN)",
+      "aliasType": "locale",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "แคลเซียมแอมโมเนียมไนเตรต (CAN)",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "硝酸アンモニウムカルシウム（CAN）",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "질산암모늄칼슘 (CAN)",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "硝酸铵钙（CAN）",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "Canxi amoni nitrat (CAN)",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "Nitrato amónico cálcico (CAN)",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "CAN 27",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "27-0-0",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "39624069-3199-47ba-9d86-8f17750885f4",
+      "alias": "nitric acid, ammonium calcium salt",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "DAP 21-54-0",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "Diammonium Hydrogen Phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "Diammonium Phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "Diammonium Phosphate (DAP) 20-53-0",
+      "aliasType": "locale",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "Diammonium phosphate 20-53-0",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "Diamoni photphat (DAP) 20-53-0",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "Fosfato diamónico (DAP) 20-53-0",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "ไดแอมโมเนียมฟอสเฟต (DAP) 20-53-0",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "リン酸二アンモニウム（DAP）20-53-0",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "磷酸二铵（DAP）20-53-0",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "alias": "인산이암모늄(DAP) 20-53-0",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "18-46-0 DAP fertilizer",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "Ammonium Phosphate Dibasic",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "DAP",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "DAP 18-46-0",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "Diammonium Hydrogen Phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "Diammonium Phosphate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "Diammonium Phosphate (DAP) 18-46-0",
+      "aliasType": "locale",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "Diammonium phosphate 18-46-0",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "Fosfato diamónico (DAP) 18-46-0",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "Phân DAP 18-46-0",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "ไดแอมโมเนียมฟอสเฟต (DAP) 18-46-0",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "リン酸二アンモニウム（DAP）18-46-0",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "磷酸二铵（DAP）18-46-0",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "f3c6c153-5734-49e8-9907-9782a149f296",
+      "alias": "인산이암모늄(DAP) 18-46-0",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "c587bbe3-0c07-4bfa-bf99-fdc3df6a1cb8",
+      "alias": "dab",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "aad4c9b0-d145-4de4-ac9d-822ddde69ca3",
+      "alias": "White vitriol",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "aad4c9b0-d145-4de4-ac9d-822ddde69ca3",
+      "alias": "Zinc sulfate heptahydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "aad4c9b0-d145-4de4-ac9d-822ddde69ca3",
+      "alias": "Zinc sulphate heptahydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "Axit boric",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "Boric acid",
+      "aliasType": "common",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "Orthoboric acid",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "Phân Bo",
+      "aliasType": "common",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "Sassolite",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "Ácido bórico",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "กรดบอริก",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "โบรอน 17%",
+      "aliasType": "search",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "ホウ酸",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "硼酸",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "alias": "붕산",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "Chelated Iron",
+      "aliasType": "common",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "EDDHA 铁",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "EDDHA 철",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "EDDHA鉄",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "Fe-EDDHA 6%",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "Hierro EDDHA",
+      "aliasType": "common",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "Iron EDDHA",
+      "aliasType": "common",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "Phân sắt đỏ",
+      "aliasType": "common",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "Quelato de hierro EDDHA",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "Sắt EDDHA",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "ปุ๋ยเหล็กแดง",
+      "aliasType": "common",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "เหล็ก EDDHA",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "螯合铁",
+      "aliasType": "common",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "鉄キレート",
+      "aliasType": "common",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "1c26053f-672c-4457-9fc8-84fae1b19efa",
+      "alias": "킬레이트 철",
+      "aliasType": "common",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "Magnesium chloride",
+      "aliasType": "common",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "Mag chloride",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "แมกนีเซียมคลอไรด์",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "ปุ๋ยเกล็ดแมกนีเซียม",
+      "aliasType": "search",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "塩化マグネシウム",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "にがり",
+      "aliasType": "common",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "염화마그네슘",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "간수",
+      "aliasType": "common",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "氯化镁",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "卤片",
+      "aliasType": "common",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "Magie clorua",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "7f59a54f-837e-42c1-b2b1-0dd155e51b61",
+      "alias": "Cloruro de magnesio",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "Calcium chloride",
+      "aliasType": "common",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "Calcium chloride dihydrate",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "CaCl2",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "แคลเซียมคลอไรด์",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "ปุ๋ยแคลเซียมเกล็ด",
+      "aliasType": "search",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "塩化カルシウム",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "塩カル",
+      "aliasType": "common",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "염화칼슘",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "염칼",
+      "aliasType": "common",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "氯化钙",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "Canxi clorua",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "c69b373d-7a98-4d27-8f73-b2d3688d3711",
+      "alias": "Cloruro de calcio",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "Ammonium sulfate",
+      "aliasType": "common",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "Ammonium sulphate",
+      "aliasType": "search",
+      "langCode": "GB"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "Amoni sunfat",
+      "aliasType": "locale",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "Diammonium sulfate",
+      "aliasType": "search",
+      "langCode": "US"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "Phân SA",
+      "aliasType": "common",
+      "langCode": "VN"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "Sulfato amónico",
+      "aliasType": "common",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "Sulfato de amonio",
+      "aliasType": "locale",
+      "langCode": "ES"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "ปุ๋ย 21-0-0",
+      "aliasType": "search",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "แอมโมเนียมซัลเฟต",
+      "aliasType": "locale",
+      "langCode": "TH"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "硫安",
+      "aliasType": "common",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "硫酸アンモニウム",
+      "aliasType": "locale",
+      "langCode": "JP"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "硫酸铵",
+      "aliasType": "locale",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "肥田粉",
+      "aliasType": "common",
+      "langCode": "CN"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "유안",
+      "aliasType": "common",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "alias": "황산암모늄",
+      "aliasType": "locale",
+      "langCode": "KR"
+    },
+    {
+      "canonicalId": "b4ebffd1-fe0c-4a0f-92db-e38a3d4634a7",
+      "alias": "Disodium molybdate dihydrate",
+      "aliasType": "common",
+      "langCode": null
+    },
+    {
+      "canonicalId": "b4ebffd1-fe0c-4a0f-92db-e38a3d4634a7",
+      "alias": "Molybdic acid sodium salt dihydrate",
+      "aliasType": "search",
+      "langCode": null
+    },
+    {
+      "canonicalId": "b4ebffd1-fe0c-4a0f-92db-e38a3d4634a7",
+      "alias": "Sodium molybdate dihydrate",
+      "aliasType": "common",
+      "langCode": null
     }
   ],
   "variants": [
     {
       "id": "china-dap-diammonium-phosphate",
       "canonicalId": "ef694469-467f-4b3d-872e-76394fd4f2dc",
+      "status": "active",
       "manufacturer": "China",
       "brandName": "DAP Diammonium Phosphate",
       "modelSku": "china-dap-diammonium-phosphate",
       "country": "CN",
+      "gradeLabel": "20-53-0",
       "formFactor": "crystal",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1767688590172-2b03807f-c45f-47af-a83f-b3055bbab153.jpg"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1767688590172-2b03807f-c45f-47af-a83f-b3055bbab153.jpg",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [
+        "Tech"
+      ],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 20.85,
+        "p2o5": 53.4,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "certis-usa-pq-corporation-agsil-16h",
       "canonicalId": "e668496a-69f1-4492-85f6-ca041a58f4ea",
+      "status": "active",
       "manufacturer": "Certis USA, PQ Corporation",
       "brandName": "AgSil® 16H",
       "modelSku": "certis-usa-pq-corporation-agsil-16h",
       "country": "US",
+      "gradeLabel": "0-0-32 + 52% SiO2",
       "formFactor": "powder",
-      "status": "active",
-      "imageUrl": "/uploads/1762698677865-b7bdc67f-802a-4fee-ab6e-5f19f1a546f4.webp"
+      "imageUrl": "/uploads/1762698677865-b7bdc67f-802a-4fee-ab6e-5f19f1a546f4.webp",
+      "packagingPackSizesKg": [
+        22.6
+      ],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 32,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 24.3,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "generic-sodium-molybdate-99",
       "canonicalId": "b4ebffd1-fe0c-4a0f-92db-e38a3d4634a7",
+      "status": "active",
       "manufacturer": "Generic",
       "brandName": "Sodium Molybdate 99%",
       "modelSku": "generic-sodium-molybdate-99",
       "country": "CN",
+      "gradeLabel": "Mo 39.6%",
       "formFactor": "powder",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1773058209583-63a9a7e0-85b7-40f0-937c-229af9254895.jpg"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1773058209583-63a9a7e0-85b7-40f0-937c-229af9254895.jpg",
+      "packagingPackSizesKg": [
+        0.1
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 39,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": false
     },
     {
       "id": "nutrien-urea-prill-agricultural-grade",
       "canonicalId": "bd1a8b8e-ec7a-4ad4-b9dd-66fa3c940b45",
+      "status": "active",
       "manufacturer": "Nutrien",
       "brandName": "Urea Prill Agricultural Grade",
       "modelSku": "nutrien-urea-prill-agricultural-grade",
       "country": "US",
+      "gradeLabel": "46-0-0",
       "formFactor": "prill",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1767708215386-df155364-0e35-4f68-9c5e-a50c52806b6c.jpg"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1767708215386-df155364-0e35-4f68-9c5e-a50c52806b6c.jpg",
+      "packagingPackSizesKg": [
+        22.67
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [
+        "Agricultural"
+      ],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 46.4,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "wesco-adob-poland-wesco-14-cu-edta",
       "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "status": "private",
       "manufacturer": "Wesco (ADOB Poland)",
       "brandName": "Wesco 14% Cu-EDTA",
       "modelSku": "wesco-adob-poland-wesco-14-cu-edta",
       "country": "PL",
+      "gradeLabel": "14% Cu-EDTA",
       "formFactor": "powder",
-      "status": "private",
-      "imageUrl": "/uploads/1762377150973-6b1c4292-3904-44df-8016-2b19b7870bf7.jpg"
+      "imageUrl": "/uploads/1762377150973-6b1c4292-3904-44df-8016-2b19b7870bf7.jpg",
+      "packagingPackSizesKg": [
+        1
+      ],
+      "packagingShelfLifeMonths": null,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 14,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": false
     },
     {
       "id": "haifa-haifa-bittermag",
       "canonicalId": "5d3a7e8f-d367-4434-852a-20fac9008443",
+      "status": "active",
       "manufacturer": "Haifa",
       "brandName": "Haifa BitterMag™",
       "modelSku": "haifa-haifa-bittermag",
       "country": "IL",
+      "gradeLabel": "Mg 10% S 12%",
       "formFactor": "crystal",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765019766812-cde1fdc8-3425-4110-bcb2-99a3df594a1e.webp"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765019766812-cde1fdc8-3425-4110-bcb2-99a3df594a1e.webp",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 9.95,
+        "s": 12.3,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "adob-nouryon-adob-ca-edta-14",
       "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "status": "active",
       "manufacturer": "ADOB (Nouryon)",
       "brandName": "ADOB Ca EDTA – 14%",
       "modelSku": "adob-nouryon-adob-ca-edta-14",
       "country": "PL",
+      "gradeLabel": null,
       "formFactor": "powder",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1768768701896-92571cc0-d09b-4a11-ba73-19df97aa87b4.jpg"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1768768701896-92571cc0-d09b-4a11-ba73-19df97aa87b4.jpg",
+      "packagingPackSizesKg": [
+        1,
+        3,
+        5,
+        25,
+        1000
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 14,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": false
     },
     {
       "id": "haifa-haifa-sop-gg",
       "canonicalId": "eaa9daef-6419-4a5a-9a8a-451769c560fe",
+      "status": "active",
       "manufacturer": "Haifa",
       "brandName": "Haifa SOP™ GG",
       "modelSku": "haifa-haifa-sop-gg",
       "country": "IL",
+      "gradeLabel": "0-0-51+18S",
       "formFactor": "granule",
-      "status": "active",
-      "imageUrl": "/uploads/1762697090369-e0647386-b96b-45fc-94d3-8b878a2333af.webp"
+      "imageUrl": "/uploads/1762697090369-e0647386-b96b-45fc-94d3-8b878a2333af.webp",
+      "packagingPackSizesKg": [],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 51,
+        "ca": 0,
+        "mg": 0,
+        "s": 18,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "wesco-wesco-edta-fe-13",
       "canonicalId": "2f433224-3a90-49b0-a05f-615e7b54bfdb",
+      "status": "active",
       "manufacturer": "Wesco",
       "brandName": "เวสโก้ เหล็กอีดีทีเอ (Wesco EDTA FE 13%)",
       "modelSku": "wesco-wesco-edta-fe-13",
       "country": "PL",
+      "gradeLabel": "Fe-EDTA 13%",
       "formFactor": "granule",
-      "status": "active",
-      "imageUrl": "/uploads/1762698371006-c630c597-15f3-4dd7-8dd4-2e6639dc28e8.webp"
+      "imageUrl": "/uploads/1762698371006-c630c597-15f3-4dd7-8dd4-2e6639dc28e8.webp",
+      "packagingPackSizesKg": [
+        1
+      ],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 13.2,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "dissolvine-nouryon-dissolvine-e-cu-15",
       "canonicalId": "27f16f51-bd95-4daa-bb94-55756ebe02c0",
+      "status": "active",
       "manufacturer": "Dissolvine® (Nouryon)",
       "brandName": "Dissolvine E-Cu-15",
       "modelSku": "dissolvine-nouryon-dissolvine-e-cu-15",
       "country": "NL",
+      "gradeLabel": "Cu EDTA 15%",
       "formFactor": "powder",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1768845051137-697a1651-1198-4d7f-9b00-08627f06a5fa.jpg"
-    },
-    {
-      "id": "test-test",
-      "canonicalId": "e80836d6-86cf-4a9a-9cb8-217c69b30c3f",
-      "manufacturer": "test",
-      "brandName": "test",
-      "modelSku": "test-test",
-      "country": "TH",
-      "formFactor": "powder",
-      "status": "private",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765859968507-a914a254-836b-4f97-9ea1-5a30d8c20d28.png"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1768845051137-697a1651-1198-4d7f-9b00-08627f06a5fa.jpg",
+      "packagingPackSizesKg": [
+        1,
+        25
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 14.8,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "haifa-magnisal",
       "canonicalId": "7532b445-2130-4df1-ab1a-a79151a051e1",
+      "status": "active",
       "manufacturer": "Haifa",
       "brandName": "Magnisal™",
       "modelSku": "haifa-magnisal",
       "country": "IL",
+      "gradeLabel": "11-0-0+16MgO",
       "formFactor": "crystal",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765548716640-5ae0de96-b944-4132-9d95-04dbc969cbc4.jpg"
-    },
-    {
-      "id": "test-test11",
-      "canonicalId": "43587206-09ec-4449-a10c-366161e0cef8",
-      "manufacturer": "test",
-      "brandName": "test",
-      "modelSku": "test-test11",
-      "country": "TH",
-      "formFactor": "crystal",
-      "status": "private",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765860344779-ed4482c6-ac5e-4db2-97f7-3582e980b770.png"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765548716640-5ae0de96-b944-4132-9d95-04dbc969cbc4.jpg",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 11,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 9.6,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "generic-ammonium-sulfate",
       "canonicalId": "23030299-1500-43ea-83ed-f611f161a813",
+      "status": "active",
       "manufacturer": "Generic",
       "brandName": "Ammonium Sulfate",
       "modelSku": "generic-ammonium-sulfate",
       "country": "CN",
+      "gradeLabel": "21-0-0",
       "formFactor": "crystal",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1770475478052-c466390f-ce26-463b-81cf-e4cd3ad3f155.jpg"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1770475478052-c466390f-ce26-463b-81cf-e4cd3ad3f155.jpg",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": null,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 21.07,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 24.06,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "haifa-cal-ggo",
       "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "status": "active",
       "manufacturer": "Haifa",
       "brandName": "Haifa Cal™ GG",
       "modelSku": "haifa-cal-ggo",
       "country": "IL",
+      "gradeLabel": "15.5-0-0+26.5CaO",
       "formFactor": "prill",
-      "status": "active",
-      "imageUrl": "/uploads/1759850943433-68582a1f-098b-4553-ba2d-87f0d6de7d5f.jpg"
+      "imageUrl": "/uploads/1759850943433-68582a1f-098b-4553-ba2d-87f0d6de7d5f.jpg",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 14.8,
+        "nNh4": 1.4,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 18.6,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0.02
+      },
+      "hasOverrides": true
     },
     {
       "id": "icl-nova-n-k",
       "canonicalId": "43587206-09ec-4449-a10c-366161e0cef8",
+      "status": "active",
       "manufacturer": "ICL",
       "brandName": "Nova N-K",
       "modelSku": "icl-nova-n-k",
       "country": "IL",
+      "gradeLabel": "13.5-0-46",
       "formFactor": "crystal",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765021329524-4062d197-a7e1-44ea-9f9e-7f41525c8bf3.webp"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765021329524-4062d197-a7e1-44ea-9f9e-7f41525c8bf3.webp",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 13.7,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 46.3,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": false
     },
     {
       "id": "yara-yaratera-calcinit",
       "canonicalId": "b177d680-dbcc-4f62-b9aa-1b0099889c09",
+      "status": "active",
       "manufacturer": "YARA",
       "brandName": "YaraTera CALCINIT",
       "modelSku": "yara-yaratera-calcinit",
       "country": "NO",
+      "gradeLabel": "15.5% N + 26.3% CaO",
       "formFactor": "prill",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765014113082-7387b26d-2db8-491b-8a80-b998de7d252d.webp"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765014113082-7387b26d-2db8-491b-8a80-b998de7d252d.webp",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 14.4,
+        "nNh4": 1.1,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 19,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0.02
+      },
+      "hasOverrides": false
     },
     {
       "id": "wesco-9-ca-edta",
       "canonicalId": "e80836d6-86cf-4a9a-9cb8-217c69b30c3f",
+      "status": "active",
       "manufacturer": "Wesco",
       "brandName": "Wesco 9% Ca-EDTA",
       "modelSku": "wesco-9-ca-edta",
       "country": "PL",
+      "gradeLabel": "9% Ca-EDTA",
       "formFactor": "powder",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765030881270-2118e667-a702-4bf6-aca9-4887b54b76ab.jpg"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1765030881270-2118e667-a702-4bf6-aca9-4887b54b76ab.jpg",
+      "packagingPackSizesKg": [
+        1
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [
+        "Greenhouse Grade"
+      ],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 9.7,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 11.2,
+        "cl": 0
+      },
+      "hasOverrides": false
     },
     {
       "id": "haifa-multi-k-gg",
       "canonicalId": "43587206-09ec-4449-a10c-366161e0cef8",
+      "status": "active",
       "manufacturer": "Haifa",
       "brandName": "Multi-K™ GG",
       "modelSku": "haifa-multi-k-gg",
       "country": "IL",
+      "gradeLabel": "13.5-0-46.2",
       "formFactor": "crystal",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1768502016806-9cec4070-eb84-4d66-98b4-3ff0162db2d4.jpg"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1768502016806-9cec4070-eb84-4d66-98b4-3ff0162db2d4.jpg",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 13.5,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 46.2,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": true
     },
     {
       "id": "generic-boric-acid",
       "canonicalId": "71e9fa62-8b79-46c1-a4e0-54ff4965ed0d",
+      "status": "active",
       "manufacturer": "Generic",
       "brandName": "Boric Acid",
       "modelSku": "generic-boric-acid",
       "country": "CN",
+      "gradeLabel": "17% Boron",
       "formFactor": "powder",
-      "status": "active",
-      "imageUrl": "https://s3.assaygrid.com/images/products%2F1773057180985-606a7283-a75e-4f56-b035-584bcf3e7e5a.jpg"
+      "imageUrl": "https://s3.assaygrid.com/images/products%2F1773057180985-606a7283-a75e-4f56-b035-584bcf3e7e5a.jpg",
+      "packagingPackSizesKg": [
+        1
+      ],
+      "packagingShelfLifeMonths": 24,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 0,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 17.5,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": false
     },
     {
       "id": "haifa-haifa-map",
       "canonicalId": "143fc813-d1ef-4a72-9617-20b90312c51e",
+      "status": "active",
       "manufacturer": "Haifa",
       "brandName": "Haifa MAP™",
       "modelSku": "haifa-haifa-map",
       "country": "IL",
+      "gradeLabel": "12-61-0",
       "formFactor": "crystal",
-      "status": "active",
-      "imageUrl": "/uploads/1762697222799-12e57f65-a5ff-4690-990e-8197c1919a83.webp"
+      "imageUrl": "/uploads/1762697222799-12e57f65-a5ff-4690-990e-8197c1919a83.webp",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 12,
+        "p2o5": 61,
+        "k2o": 0,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": false
     },
     {
       "id": "icl-nova-peak",
       "canonicalId": "32f7cd95-ce1a-48ef-9dc8-f69527540d7e",
+      "status": "active",
       "manufacturer": "ICL",
       "brandName": "Nova PeaK®",
       "modelSku": "icl-nova-peak",
       "country": "IL",
+      "gradeLabel": "0-52-34",
       "formFactor": "crystal",
-      "status": "active",
-      "imageUrl": "/uploads/1762698425473-bdfae654-0a4c-42c1-bb0b-8ba2f98b71a9.webp"
+      "imageUrl": "/uploads/1762698425473-bdfae654-0a4c-42c1-bb0b-8ba2f98b71a9.webp",
+      "packagingPackSizesKg": [
+        25
+      ],
+      "packagingShelfLifeMonths": 18,
+      "certsLabels": [],
+      "hazardLabels": [],
+      "nutrients": {
+        "nNo3": 0,
+        "nNh4": 0,
+        "p2o5": 52,
+        "k2o": 34,
+        "ca": 0,
+        "mg": 0,
+        "s": 0,
+        "fe": 0,
+        "mn": 0,
+        "zn": 0,
+        "b": 0,
+        "cu": 0,
+        "si": 0,
+        "mo": 0,
+        "na": 0,
+        "cl": 0
+      },
+      "hasOverrides": false
     }
   ],
   "pricing": [
@@ -1505,216 +3821,352 @@
       "variantId": "haifa-haifa-sop-gg",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": null,
       "currency": "THB",
       "pricePerPack": 1150,
-      "pricePerKg": 46
-    },
-    {
-      "id": "cmj83nzrg0002uluxs5xpckgu",
-      "variantId": "test-test11",
-      "packSizeKg": 1,
-      "market": "Wholesale",
-      "currency": "THB",
-      "pricePerPack": 1,
-      "pricePerKg": 1
+      "pricePerKg": 46,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-11-09 14:04:52.606",
+      "priceReference": "https://github.com/chatthong/CropBinary",
+      "dataSource": "manual"
     },
     {
       "id": "cmhrsez9s001jt0omye3wzte2",
       "variantId": "haifa-haifa-map",
       "packSizeKg": 25,
       "market": "Wholesale",
+      "marketRegion": null,
       "currency": "THB",
       "pricePerPack": 1750,
-      "pricePerKg": 70
+      "pricePerKg": 70,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-11-09 14:07:04.719",
+      "priceReference": "https://github.com/chatthong/CropBinary",
+      "dataSource": "manual"
     },
     {
       "id": "cmhrt5ksm001qt0om847twpmt",
       "variantId": "icl-nova-peak",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": null,
       "currency": "THB",
       "pricePerPack": 1920,
-      "pricePerKg": 76.8
+      "pricePerKg": 76.8,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-11-09 14:27:45.668",
+      "priceReference": "https://www.plantmediastore.com/product/358/kh2po4-monopotassium-phosphate-mkp-%E0%B8%9B%E0%B8%B8%E0%B9%8B%E0%B8%A2%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%94-novapeak-0-52-34-icl-%E0%B8%AD%E0%B8%B4%E0%B8%AA%E0%B8%A3%E0%B8%B2%E0%B9%80%E0%B8%AD%E0%B8%A5-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8-25-%E0%B8%81%E0%B8%B4%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B8%A3%E0%B8%B1%E0%B8%A1",
+      "dataSource": "manual"
     },
     {
       "id": "cmkfsg1sf00005mt0ohanbp9d",
       "variantId": "haifa-multi-k-gg",
       "packSizeKg": 1,
       "market": "Wholesale",
+      "marketRegion": "IL",
       "currency": "THB",
       "pricePerPack": 0,
-      "pricePerKg": 0
+      "pricePerKg": 0,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-01-15 18:33:47.518",
+      "priceReference": "https://www.plantmediashop.com/product/437/cano32-calcium-nitrate-%E0%B8%9B%E0%B8%B8%E0%B9%8B%E0%B8%A2%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%94-%E0%B9%81%E0%B8%84%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B8%B5%E0%B8%A2%E0%B8%A1%E0%B9%84%E0%B8%99%E0%B9%80%E0%B8%95%E0%B8%A3%E0%B8%97-%E0%B8%A2%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B9%89%E0%B8%AD-knlan-npk-15-5-0-026-5cao-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8-25-%E0%B8%81%E0%B8%B4%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B8%A3%E0%B8%B1%E0%B8%A1-2",
+      "dataSource": "manual"
     },
     {
       "id": "cmhrte67p0021t0om9dy21v87",
       "variantId": "certis-usa-pq-corporation-agsil-16h",
       "packSizeKg": 22.6,
       "market": "Retail",
+      "marketRegion": null,
       "currency": "USD",
       "pricePerPack": 317.8,
-      "pricePerKg": 14.06
+      "pricePerKg": 14.06,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-11-09 14:34:26.676",
+      "priceReference": "https://www.7springsfarm.com/products/agsil-16h-potassium-silicate-powder-52-sio2-0-0-32-50-lb-bag?srsltid=AfmBOooiZ-misCqR_9VfnyvB8BPo8s23lTFay-Nq5-F1WoI38tX7xJDT",
+      "dataSource": "manual"
     },
     {
       "id": "cmhrtg7bn0024t0omkzgwe2bg",
       "variantId": "wesco-wesco-edta-fe-13",
       "packSizeKg": 1,
       "market": "Retail",
+      "marketRegion": null,
       "currency": "THB",
       "pricePerPack": 470,
-      "pricePerKg": 470
+      "pricePerKg": 470,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-11-09 14:36:01.426",
+      "priceReference": "https://github.com/chatthong/CropBinary",
+      "dataSource": "manual"
     },
     {
       "id": "cmhrtg7bn0025t0omjulfd95m",
       "variantId": "wesco-wesco-edta-fe-13",
       "packSizeKg": 12,
       "market": "Wholesale",
+      "marketRegion": null,
       "currency": "THB",
       "pricePerPack": 5250,
-      "pricePerKg": 437.5
+      "pricePerKg": 437.5,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-11-09 14:36:01.426",
+      "priceReference": "https://github.com/chatthong/CropBinary",
+      "dataSource": "manual"
     },
     {
       "id": "cmigazq8f0000t0kjh1mhzeh6",
       "variantId": "haifa-cal-ggo",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "IL",
       "currency": "THB",
       "pricePerPack": 750,
-      "pricePerKg": 30
+      "pricePerKg": 30,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-11-26 17:53:34.094",
+      "priceReference": "https://www.plantmediastore.com/product/633/cano32-haifa-cal-gg-%E0%B9%81%E0%B8%84%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B8%B5%E0%B8%A2%E0%B8%A1%E0%B9%84%E0%B8%99%E0%B9%80%E0%B8%95%E0%B8%A3%E0%B8%97-15-5-0-026-5cao-calcium-nitrate-%E0%B9%84%E0%B8%AE%E0%B8%9F%E0%B9%88%E0%B8%B2-%E0%B8%AD%E0%B8%B4%E0%B8%AA%E0%B8%A3%E0%B8%B2%E0%B9%80%E0%B8%AD%E0%B8%A5-%E0%B8%88%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A3%E0%B8%94-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8-25-%E0%B8%81%E0%B8%B4",
+      "dataSource": "manual"
     },
     {
       "id": "cmkfsg1sf00015mt0y49flzs2",
       "variantId": "haifa-multi-k-gg",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 1350,
-      "pricePerKg": 54
+      "pricePerKg": 54,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-01-15 18:33:47.518",
+      "priceReference": "https://www.plantmediashop.com/product/437/cano32-calcium-nitrate-%E0%B8%9B%E0%B8%B8%E0%B9%8B%E0%B8%A2%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%94-%E0%B9%81%E0%B8%84%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B8%B5%E0%B8%A2%E0%B8%A1%E0%B9%84%E0%B8%99%E0%B9%80%E0%B8%95%E0%B8%A3%E0%B8%97-%E0%B8%A2%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B9%89%E0%B8%AD-knlan-npk-15-5-0-026-5cao-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8-25-%E0%B8%81%E0%B8%B4%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B8%A3%E0%B8%B1%E0%B8%A1-2",
+      "dataSource": "manual"
     },
     {
       "id": "cmkhaoxsv0000f9qcg8iyp50n",
       "variantId": "wesco-adob-poland-wesco-14-cu-edta",
       "packSizeKg": 1,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 520,
-      "pricePerKg": 520
+      "pricePerKg": 520,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-01-16 19:52:21.53",
+      "priceReference": "https://www.plantmediastore.com/product/135/%E0%B8%9C%E0%B8%87%E0%B8%88%E0%B8%B8%E0%B8%A5%E0%B8%98%E0%B8%B2%E0%B8%95%E0%B8%B8%E0%B8%97%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%87%E0%B8%84%E0%B8%AD%E0%B8%9B%E0%B9%80%E0%B8%9B%E0%B8%AD%E0%B8%A3%E0%B9%8C-%E0%B8%84%E0%B8%B5%E0%B9%80%E0%B8%A5%E0%B8%95%E0%B8%AD%E0%B8%B5%E0%B8%94%E0%B8%B5%E0%B8%97%E0%B8%B5%E0%B9%80%E0%B8%AD-14-%E0%B8%97%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%87%E0%B9%80%E0%B8%A7%E0%B8%AA%E0%B9%82%E0%B8%81%E0%B9%89-edta-cu-14-adob-poland-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8-1-%E0%B8%81%E0%B8%B4%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B8%A3%E0%B8%B1%E0%B8%A1",
+      "dataSource": "manual"
     },
     {
       "id": "cmkhaoxsw0001f9qcqh7z1f8f",
       "variantId": "wesco-adob-poland-wesco-14-cu-edta",
       "packSizeKg": 12,
       "market": "Wholesale",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 5840,
-      "pricePerKg": 486.67
+      "pricePerKg": 486.67,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-01-16 19:52:21.53",
+      "priceReference": "https://www.plantmediastore.com/product/681/%E0%B8%A2%E0%B8%81%E0%B8%A5%E0%B8%B1%E0%B8%87-%E0%B8%9C%E0%B8%87%E0%B8%88%E0%B8%B8%E0%B8%A5%E0%B8%98%E0%B8%B2%E0%B8%95%E0%B8%B8%E0%B8%97%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%87%E0%B8%84%E0%B8%AD%E0%B8%9B%E0%B9%80%E0%B8%9B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%84%E0%B8%B5%E0%B9%80%E0%B8%A5%E0%B8%95%E0%B8%AD%E0%B8%B5%E0%B8%94%E0%B8%B5%E0%B8%97%E0%B8%B5%E0%B9%80%E0%B8%AD-14-%E0%B8%97%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%87%E0%B9%80%E0%B8%A7%E0%B8%AA%E0%B9%82%E0%B8%81%E0%B9%89-adob-edta-cu-14-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8-1-%E0%B8%81%E0%B8%B4%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B8%A3%E0%B8%B1%E0%B8%A1x12-%E0%B8%81%E0%B8%A5%E0%B9%88%E0%B8%AD%E0%B8%87",
+      "dataSource": "manual"
     },
     {
       "id": "cmiu3u02i0002b8qc7vqy30wf",
       "variantId": "yara-yaratera-calcinit",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "NO",
       "currency": "THB",
       "pricePerPack": 630,
-      "pricePerKg": 25.2
+      "pricePerKg": 25.2,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-12-06 09:41:56.057",
+      "priceReference": "https://www.plantmediastore.com/product/7/cano32-calcium-nitrate-%E0%B8%9B%E0%B8%B8%E0%B9%8B%E0%B8%A2%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%94-yaratera-calcinit-15-5-0-026-3cao-%E0%B8%A2%E0%B8%B2%E0%B8%A3%E0%B9%88%E0%B8%B2-%E0%B8%88%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A3%E0%B8%94-%E0%B8%AA%E0%B8%B3%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B8%99%E0%B9%89%E0%B8%B3-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8-",
+      "dataSource": "manual"
     },
     {
       "id": "cmlcfwfyg000sfvqcdag8mnjw",
       "variantId": "generic-ammonium-sulfate",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 440,
-      "pricePerKg": 17.6
+      "pricePerKg": 17.6,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-02-07 14:59:01.191",
+      "priceReference": "https://www.plantmediastore.com/product/456/ammonium-sulfate-nh42-so4-%E0%B9%81%E0%B8%AD%E0%B8%A1%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%99%E0%B8%B5%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%B1%E0%B8%A5%E0%B9%80%E0%B8%9F%E0%B8%95-21-0-0-%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%94%E0%B9%83%E0%B8%AA-%E0%B9%80%E0%B8%81%E0%B8%A3%E0%B8%94%E0%B8%AD%E0%B8%B8%E0%B8%95%E0%B8%AA%E0%B8%B2%E0%B8%AB%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8-25-%E0%B8%81%E0%B8%B4%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B8%A3%E0%B8%B1%E0%B8%A1",
+      "dataSource": "manual"
     },
     {
       "id": "cmmj53g35000abwqc5sp88c55",
       "variantId": "generic-sodium-molybdate-99",
       "packSizeKg": 0.1,
       "market": "Wholesale",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 300,
-      "pricePerKg": 3000
-    },
-    {
-      "id": "cmj83g9tz0001uluxl39ey24q",
-      "variantId": "test-test",
-      "packSizeKg": 1,
-      "market": "Wholesale",
-      "currency": "JPY",
-      "pricePerPack": 1,
-      "pricePerKg": 1
+      "pricePerKg": 3000,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-03-09 12:10:37.743",
+      "priceReference": "https://www.plantmediastore.com/product/114/ผงจุลธาตุโมลิบดินั่ม-sodium-molybdate-99-na2moo4-2h2o-ให้ธาตุโมลิบดีนั่ม-mo-39-5-บรรจุ-500-กรัม",
+      "dataSource": "manual"
     },
     {
       "id": "cmiu775yx0003wjt0xkpoifyx",
       "variantId": "haifa-haifa-bittermag",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 460,
-      "pricePerKg": 18.4
+      "pricePerKg": 18.4,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-12-06 11:16:09.079",
+      "priceReference": "https://www.plantmediastore.com/product/804/mgso4-7h2o-bittermag-haifa-magnesium-sulphate-heptahydrate-%E0%B9%81%E0%B8%A1%E0%B8%81%E0%B8%99%E0%B8%B5%E0%B9%80%E0%B8%8B%E0%B8%B5%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%B1%E0%B8%A5%E0%B9%80%E0%B8%9F%E0%B8%95-%E0%B9%84%E0%B8%AE%E0%B8%9F%E0%B9%88%E0%B8%B2-%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%9C%E0%B8%A5%E0%B8%B6%E0%B8%81%E0%B8%84%E0%B8%A3%E0%B8%B4%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A5-%E0%B8%9B%E0%B8%A3%E0%B8%B0-3",
+      "dataSource": "manual"
     },
     {
       "id": "cmiu84oif0006wjt04ik5qqf4",
       "variantId": "icl-nova-n-k",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "IL",
       "currency": "THB",
       "pricePerPack": 1190,
-      "pricePerKg": 47.6
+      "pricePerKg": 47.6,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-12-06 11:42:12.759",
+      "priceReference": "https://www.plantmediastore.com/product/1102/kno3-potassium-nitrate-%E0%B8%9B%E0%B8%B8%E0%B9%8B%E0%B8%A2%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%94-nova-n-k-13-5-0-46-icl-fertilizer-%E0%B8%AD%E0%B8%B4%E0%B8%AA%E0%B8%A3%E0%B8%B2%E0%B9%80%E0%B8%AD%E0%B8%A5-%E0%B8%88%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%A3%E0%B8%94-%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%AA%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B8%B4%E0%B9%8C%E0%B8%AA%E0%B8%B9%E0%B8%87-",
+      "dataSource": "manual"
     },
     {
       "id": "cmj2y4eu00006uut0qug6he6p",
       "variantId": "haifa-magnisal",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 1020,
-      "pricePerKg": 40.8
+      "pricePerKg": 40.8,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-12-12 14:11:59.626",
+      "priceReference": "https://www.plantmediastore.com/product/1167/magnisal-%E0%B9%84%E0%B8%AE%E0%B8%9F%E0%B9%88%E0%B8%B2-%E0%B9%81%E0%B8%A1%E0%B9%87%E0%B8%81%E0%B8%99%E0%B8%B4%E0%B8%8B%E0%B8%B1%E0%B8%A5-haifa-magnesium-nitrate-hexahydrate-mgno3-%E0%B9%81%E0%B8%A1%E0%B8%81%E0%B8%99%E0%B8%B5%E0%B9%80%E0%B8%8B%E0%B8%B5%E0%B8%A2%E0%B8%A1%E0%B9%84%E0%B8%99%E0%B9%80%E0%B8%95%E0%B8%A3%E0%B8%97-11-0-016mgo-%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88",
+      "dataSource": "manual"
     },
     {
       "id": "cmjq8g48t000001t07q1flgs4",
       "variantId": "wesco-9-ca-edta",
       "packSizeKg": 1,
       "market": "Retail",
+      "marketRegion": "PL",
       "currency": "THB",
       "pricePerPack": 470,
-      "pricePerKg": 470
+      "pricePerKg": 470,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2025-12-28 21:19:43.983",
+      "priceReference": "https://github.com/chatthong/CropBinary",
+      "dataSource": "manual"
     },
     {
       "id": "cmk2c96n10019fsqcj9obdwnq",
       "variantId": "china-dap-diammonium-phosphate",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 1500,
-      "pricePerKg": 60
+      "pricePerKg": 60,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-01-06 08:39:33.084",
+      "priceReference": "https://www.plantmediastore.com/product/356/dap-20-53-0-diammonium-phosphate-ไดแอมโมเนียมฟอสเฟต-25-กิโลกรัม",
+      "dataSource": "manual"
     },
     {
       "id": "cmk348qyk000eoft00hj29vun",
       "variantId": "nutrien-urea-prill-agricultural-grade",
       "packSizeKg": 22.67,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "USD",
       "pricePerPack": 59.95,
-      "pricePerKg": 2.64
+      "pricePerKg": 2.64,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-01-06 21:43:02.011",
+      "priceReference": "https://www.lawnandpestcontrolsupply.com/products/pure-urea-nitrogen-fertilizer-46-0-0-granular",
+      "dataSource": "manual"
     },
     {
       "id": "cmkljddtn000k2nt0zuoigb19",
       "variantId": "dissolvine-nouryon-dissolvine-e-cu-15",
       "packSizeKg": 25,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 11900,
-      "pricePerKg": 476
+      "pricePerKg": 476,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-01-19 19:06:23.674",
+      "priceReference": "https://www.plantmediastore.com/product/641/25kg-ผงจุลธาตุทองแดงคอปเปอร์คีเลตอีดีทีเอ-15-ดิสโซลวีน-dissolvine-e-cu-15-edta-copper-15-akzonobel-n-2",
+      "dataSource": "manual"
     },
     {
       "id": "cmmj4i1ln0000bwqcunjk1wlv",
       "variantId": "generic-boric-acid",
       "packSizeKg": 1,
       "market": "Retail",
+      "marketRegion": "TH",
       "currency": "THB",
       "pricePerPack": 125,
-      "pricePerKg": 125
+      "pricePerKg": 125,
+      "incoterm": "unspecified",
+      "minOrderPack": null,
+      "leadTimeDays": null,
+      "lastUpdate": "2026-03-09 11:53:59.191",
+      "priceReference": "https://krungthepchemi.com/product/boric-acid/",
+      "dataSource": "manual"
     }
   ]
 }
