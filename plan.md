@@ -96,11 +96,24 @@ architecture, no servers to host.
 - Fertilizer library: canonical + variant catalog, pricing, specs, documents
 - Formula design: recipes, components, targets, target captures
 - **Calculation engine**: nutrient totals (N / NO₃ / NH₄ / P / K / Ca / Mg / S / Si),
-  PPM/EC, dissolution / solution simulation, buffer **Auto** picker, target solving
-- Feeding plans (week-by-week, stars)
-- Inventory (items, transactions, reorder automations — TBD if v1)
+  PPM/EC, dissolution / solution simulation, buffer **Auto** picker, target solving,
+  the **NNLS blend solver** (`lib/formulas/target-optimizer.ts`)
+- **Chemical-incompatibility / safety engine** — pairwise mixing warnings from canonical
+  flags (with-phosphates/sulfates/calcium/borate/high-pH); currently tangled in
+  `create-formula-builder.tsx` (~L4100–4316) — must be lifted to a pure module
+- **Batch-cost estimator + multi-currency (FX)** — live feature in the builder
+  (`create-formula-builder.tsx` L3675–3790) + price resolution in `builder-options.ts`
+- **`builder-options` assembly layer** — resolves canonical+variant+overrides+pricing
+  into the builder/feeding option shape; the Prisma→domain resolver Rust must reimplement
+- Feeding plans (week-by-week, stars, veg/flower peak summaries)
+- Inventory — **currently mock/hardcoded (no persistence)** → greenfield build in Phase 4,
+  not a port
 - The shadcn/Tailwind look & UX
 - Multi-language UI (as static strings)
+- Library browse/search (`lib/search/explore-search.ts`)
+
+**Reference:** detailed port map in the private legacy repo at `docs/port-atlas.md`
+(chemistry constants, zod input contracts, PG→SQLite mapping, per-subsystem port notes).
 
 ---
 
@@ -119,7 +132,7 @@ Stand up the clean public repo + governance. No app logic yet.
 - [x] `.gitignore` in place from commit #1 (never track `.env`, build artifacts, DB files)
 - [x] `.env.example` template documented — no real secrets
 - [x] `CONTRIBUTING.md` added (issue/PR templates deferred — optional)
-- [ ] Repo pushed to GitHub as **public**; legacy repo confirmed still **private** — *awaiting go*
+- [x] Repo pushed to GitHub as **public** — https://github.com/chatthong/fertilizer-studio ; legacy `AssayGrid` confirmed **private**
 - [x] Verified: no secret staged in the first commit (only `.env.example`)
 
 ### Phase 1 — Walking skeleton (scaffold + SQLite + library read + sync)
@@ -199,10 +212,30 @@ Port the crown-jewel math into an isolated, tested crate.
 
 ## 8. Risks & mitigations
 
-- **Engine parity** — Rust port must match legacy math. → Capture golden test vectors
-  from the legacy app first; test against them (Phase 2 AC).
-- **Postgres → SQLite gaps** — enums, arrays, JSON columns. → Map enums→TEXT+CHECK,
-  arrays/JSON→JSON columns; decide during Phase 1 schema port.
+**Top engine-port risks (from the Port Atlas):**
+- **NNLS blend solver** (`lib/formulas/target-optimizer.ts`) — hand-rolled active-set NNLS
+  + Gaussian elimination + constraint bisection with idiosyncratic tie-breaking a library
+  crate won't reproduce. Key constants: `P2O5_TO_P=0.4364602764`, `K2O_TO_K=0.8301472547`,
+  `EPSILON=1e-9`, tolerance `1e-8`, 12 geometric-escalation attempts ×10 + 40 bisection
+  iters, `LIQUID_SCALING_FACTOR=10000`. → **Port verbatim to Rust f64; golden-master** the
+  outputs against the legacy app.
+- **EC estimator** buried in the 785-line `formula-ppm-analysis-card.tsx` (ION_SPECS,
+  PPM_ION_FACTORS, ionic-strength piecewise interpolation). → Lift to a pure Rust module;
+  guard the piecewise breakpoints with tests.
+- **Buffer Auto-picker + mode scaling + accuracy grading** tangled in
+  `create-formula-builder.tsx` (~L1440–2260, 16 solver calls, mode-specific target scaling,
+  density fixed-point). → Highest extraction effort; isolate before porting.
+- **Decimal-precision parity** — some paths need `rust_decimal`, not `f64`. → Decide
+  per-path during Phase 2; golden-master catches drift.
+
+**Cross-cutting:**
+- **Engine parity** — capture golden test vectors from the legacy app first (Phase 2 AC).
+- **Postgres → SQLite gaps** — enums→TEXT+CHECK, arrays/JSON→JSON columns; PG→SQLite map
+  is in `docs/port-atlas.md §9`. Decide during Phase 1 schema port.
+- **zod input contracts** (`schemas/fertilizer.ts`, `schemas/formulas.ts`) must be
+  reproduced field-for-field in Rust (serde + validator) for every command.
+- **Data migration** — legacy has `lib/sql-dump.ts` / `sql-import.ts` to egress Postgres;
+  use it to seed the SQLite catalog / GitHub-published library file.
 - **Scope creep** — the legacy has huge surface. → Ruthless YAGNI; §5 CUT list is binding.
 - **Unsigned binaries** — Gatekeeper/SmartScreen warnings. → Acceptable for a free
   project v1; document the workaround; revisit signing in Phase 6.
@@ -217,5 +250,12 @@ Port the crown-jewel math into an isolated, tested crate.
   domain into `docs/port-atlas.md` (grounds the Phase 1/2 specs).
 - **2026-07-19** — **Phase 0 scaffold done** (local commit `8c6079b`): GPL-3.0 LICENSE,
   README, CONTRIBUTING, .gitignore, .env.example, plan.md. Verified legacy `AssayGrid`
-  repo is **PRIVATE**. Remaining Phase 0 step: `gh repo create` **public** + push —
-  held for explicit go.
+  repo is **PRIVATE**.
+- **2026-07-19** — **Phase 0 COMPLETE**: repo public at
+  https://github.com/chatthong/fertilizer-studio (final secret sweep clean).
+- **2026-07-19** — **Port Atlas complete** (10-agent workflow, 0 errors, ~890K tokens) →
+  `docs/port-atlas.md` in the private legacy repo. Findings folded into §5/§8: inventory
+  is currently **mock** (greenfield, not a port); surfaced the incompatibility engine,
+  live multi-currency batch-cost estimator, and `builder-options` assembly layer as
+  must-port surviving features; recorded the top engine-port risks (NNLS solver, EC
+  estimator, buffer Auto-picker, decimal precision).
