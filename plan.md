@@ -139,16 +139,16 @@ Stand up the clean public repo + governance. No app logic yet.
 Thinnest end-to-end slice that exercises every layer and de-risks the architecture.
 
 **Acceptance criteria**
-- [x] Tauri v2 app builds on macOS — scaffolded (react-ts, tauri v2); frontend `vite build` ✓, `cargo check` ✓ (commit 369b1cc)
-- [~] React + Vite frontend renders — builds clean; **Tailwind + shadcn still to add**
-- [ ] SQLite DB created in the OS app-data dir on first run
-- [ ] Fertilizer-library schema ported to SQLite (Postgres enums/arrays → SQLite-safe)
-- [ ] A Tauri command reads library rows from SQLite and returns them to the UI
-- [ ] "Browse library" screen lists catalog items (read-only) with the shadcn look
-- [ ] On launch: Rust pulls the shared-library file from the public repo, caches it,
-      and populates/refreshes the local library tables
-- [ ] Offline behavior verified: with no network, app uses the last cached library
-- [ ] Documented seed/export path from the legacy Postgres → shared library file
+- [x] Tauri v2 app builds on macOS — react-ts, tauri v2; `vite build` ✓, `cargo check`/`cargo test` ✓
+- [x] React + Vite + **Tailwind v4** frontend — Browse screen builds; app runs (dev binary launched, no panic). shadcn deferred to first component-heavy screen.
+- [x] SQLite DB created in the OS app-data dir on first run (`db::open` + `app_data_dir`)
+- [x] Fertilizer-library schema ported to SQLite (canonical + variant subset; enums→TEXT, nutrients→REAL)
+- [x] A Tauri command reads library rows from SQLite and returns them to the UI (`list_library`)
+- [x] "Browse library" screen lists catalog items (read-only, search + nutrient table)
+- [x] Seeded from **real rescued data** (29 canonicals, 22 variants) — 2 Rust unit tests pass
+- [x] Documented seed/export path: `extract-library.cjs` (dump → `library/library.json`)
+- [ ] **GitHub library pull → cache → offline** — remaining Phase 1 item (embedded seed works offline now; runtime pull not yet wired)
+- [~] Visual render not screenshot-confirmed (macOS window-focus/permission blocked the grab); backend+data unit-verified, invoke path standard
 
 ### Phase 2 — Calculation engine crate (Rust)
 Port the crown-jewel math into an isolated, tested crate.
