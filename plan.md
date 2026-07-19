@@ -139,8 +139,8 @@ Stand up the clean public repo + governance. No app logic yet.
 Thinnest end-to-end slice that exercises every layer and de-risks the architecture.
 
 **Acceptance criteria**
-- [ ] Tauri v2 app builds and runs on macOS (dev)
-- [ ] React + Vite + Tailwind + shadcn frontend renders inside the Tauri window
+- [x] Tauri v2 app builds on macOS — scaffolded (react-ts, tauri v2); frontend `vite build` ✓, `cargo check` ✓ (commit 369b1cc)
+- [~] React + Vite frontend renders — builds clean; **Tailwind + shadcn still to add**
 - [ ] SQLite DB created in the OS app-data dir on first run
 - [ ] Fertilizer-library schema ported to SQLite (Postgres enums/arrays → SQLite-safe)
 - [ ] A Tauri command reads library rows from SQLite and returns them to the UI
