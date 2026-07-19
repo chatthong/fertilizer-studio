@@ -12,7 +12,7 @@ to match known-good outputs exactly.
 
 | File | Function | Coverage |
 |------|----------|----------|
-| `blend-optimizer.json` | `optimizeBlendShares` (NNLS blend solver) | single/multi-product blends, oxide targets, weighted targets, the max-constraint **bisection** path, liquid basis, null/empty edge cases |
+| `blend-optimizer.json` | `optimizeBlendShares` (NNLS blend solver) | 14 cases: single/multi-product blends, oxide targets, weighted targets, max-constraint **bisection**, liquid basis, null/empty edges, **zero-target weight-500 buffer pattern** (the common real call), liquid+constraint, non-binding constraint, oxide-key constraint, 5-product active-set stress |
 | `oxide-to-element.json` | `convertOxidePercentToElement` | P₂O₅→P (×0.4364602764), K₂O→K (×0.8301472547), no-factor keys, 0/null |
 | `percent-to-ppm.json` | `convertPercentValueToPpm` | ppm = %/100 × g/L × 1000, incl. 0/null/zero-g/L |
 | `percent-record-to-ppm.json` | `convertPercentToPpm` | record variant |
