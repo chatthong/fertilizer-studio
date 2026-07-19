@@ -245,6 +245,13 @@ Port the crown-jewel math into an isolated, tested crate.
 
 ## 9. Progress log
 
+- **2026-07-19** — Extended golden vectors 9→14 (buffer weight-500 pattern, liquid+constraint,
+  non-binding, oxide-key constraint, 5-product stress). Closed audit minor gap: no-variant
+  canonicals (13/29) now shown as brandless "reference" entries — Library shows all 29
+  compounds (33 entries). Remaining minor gaps: variant stars (local favorites — quick add
+  on request), user-data migration (needs a decision; deferred until formula/feeding UI exists).
+
+
 - **2026-07-19** — **Fable audit + data-fidelity remediation.** A Fable-model audit
   (report in legacy `docs/audit-legacy-vs-new.md`) flagged the DB→library.json extraction
   as lossy. Verified findings and fixed: nutrient overrides now applied at the variant
