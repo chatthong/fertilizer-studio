@@ -32,7 +32,7 @@ architecture, no servers to host.
 
 - **Project name:** **Fertilizer Studio** (repo slug e.g. `fertilizer-studio`)
 - **License:** **GPL-3.0** (copyleft — derivatives stay free)
-- **On-disk location:** *DECISION NEEDED (see §7)*
+- **On-disk location:** `~/Desktop/projects/fertilizer-studio`
 
 ---
 
@@ -113,14 +113,14 @@ architecture, no servers to host.
 Stand up the clean public repo + governance. No app logic yet.
 
 **Acceptance criteria**
-- [ ] New project directory + fresh `git init` created (name/location decided — §7)
-- [ ] FOSS **LICENSE** chosen and added (decision — §7)
-- [ ] `README.md` written: what it is, build-from-source, contributing, license
-- [ ] `.gitignore` in place from commit #1 (never track `.env`, build artifacts, DB files)
-- [ ] `.env.example` (or equivalent) template documented — no real secrets
-- [ ] `CONTRIBUTING.md` + basic issue/PR templates (optional, nice-to-have)
-- [ ] Repo pushed to GitHub as **public**; legacy repo confirmed still **private**
-- [ ] Verified: no secret ever committed to the new repo (`git log -p` clean)
+- [x] New project directory + fresh `git init` created — `~/Desktop/projects/fertilizer-studio`
+- [x] FOSS **LICENSE** chosen and added — GPL-3.0 (canonical text)
+- [x] `README.md` written: what it is, build-from-source, contributing, license
+- [x] `.gitignore` in place from commit #1 (never track `.env`, build artifacts, DB files)
+- [x] `.env.example` template documented — no real secrets
+- [x] `CONTRIBUTING.md` added (issue/PR templates deferred — optional)
+- [ ] Repo pushed to GitHub as **public**; legacy repo confirmed still **private** — *awaiting go*
+- [x] Verified: no secret staged in the first commit (only `.env.example`)
 
 ### Phase 1 — Walking skeleton (scaffold + SQLite + library read + sync)
 Thinnest end-to-end slice that exercises every layer and de-risks the architecture.
@@ -189,7 +189,7 @@ Port the crown-jewel math into an isolated, tested crate.
 
 - [x] **Project name** — **Fertilizer Studio** (repo slug `fertilizer-studio`)
 - [x] **License** — **GPL-3.0**
-- [ ] **New project location** on disk (default proposal: `~/Desktop/projects/fertilizer-studio`)
+- [x] **New project location** on disk — `~/Desktop/projects/fertilizer-studio`
 - [ ] **Rust DB layer**: `sqlx` (async, compile-checked SQL) vs `SeaORM` (ORM)
 - [ ] **Shared-library file format**: SQLite `.db` (directly queryable) vs JSON
 - [ ] **Inventory** in v1 scope, or defer to a later release?
@@ -215,3 +215,7 @@ Port the crown-jewel math into an isolated, tested crate.
   legacy stays private. Plan created. Decided name = **Fertilizer Studio**, license =
   **GPL-3.0**. Launched the "Port Atlas" multi-agent workflow to map the surviving
   domain into `docs/port-atlas.md` (grounds the Phase 1/2 specs).
+- **2026-07-19** — **Phase 0 scaffold done** (local commit `8c6079b`): GPL-3.0 LICENSE,
+  README, CONTRIBUTING, .gitignore, .env.example, plan.md. Verified legacy `AssayGrid`
+  repo is **PRIVATE**. Remaining Phase 0 step: `gh repo create` **public** + push —
+  held for explicit go.
