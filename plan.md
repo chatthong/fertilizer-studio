@@ -259,3 +259,12 @@ Port the crown-jewel math into an isolated, tested crate.
   live multi-currency batch-cost estimator, and `builder-options` assembly layer as
   must-port surviving features; recorded the top engine-port risks (NNLS solver, EC
   estimator, buffer Auto-picker, decimal precision).
+- **2026-07-19** — **Cloud data extracted + verified** to a private local backup
+  (`~/Desktop/projects/cropbinary-cloud-backup`, 233 MB): full Postgres dump (74 tables,
+  .sql + .dump), rustfs images (175) + documents (22) + 8 daily DB backups. Servers safe
+  to decommission (user handles via provider panel). Legacy *code* repo stays private.
+- **2026-07-19** — **Golden vectors captured** (Phase 2 prep) → `golden/*.json` in this
+  repo: `optimizeBlendShares` NNLS solver (9 branch-covering cases) + oxide/ppm
+  conversions, at full f64 precision, run from the verbatim legacy TS. Harness kept in the
+  private legacy repo `tools/golden-capture/`. Pending: EC estimator + buffer Auto-picker
+  (tangled in React; capture during Phase 2).
