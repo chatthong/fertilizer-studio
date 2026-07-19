@@ -245,6 +245,17 @@ Port the crown-jewel math into an isolated, tested crate.
 
 ## 9. Progress log
 
+- **2026-07-19** — **Fable audit + data-fidelity remediation.** A Fable-model audit
+  (report in legacy `docs/audit-legacy-vs-new.md`) flagged the DB→library.json extraction
+  as lossy. Verified findings and fixed: nutrient overrides now applied at the variant
+  level (matches legacy production), archived "test" variants excluded (20 not 22),
+  dropped fields carried (243 aliases, CAS, assay, hazard, packaging, pricing provenance);
+  the extraction script is now committed (`tools/extract-library.cjs`), db.rs uses
+  `deny_unknown_fields` + variant-level nutrients (schema v3). The audit's headline
+  "AgSil 2× error" was **disproven** against the dump (override was a no-op); real
+  overrides are minor (e.g. SOP K₂O 50→51). Remaining: extend golden vectors (task #17).
+
+
 - **2026-07-19** — **UI built + product detail drawer.** App shell (sidebar + Library
   view: stats, category chips, search, N·P·K table) and a click-through detail drawer
   (full 16-nutrient profile, physical props, incompatibility warnings, market pricing).
