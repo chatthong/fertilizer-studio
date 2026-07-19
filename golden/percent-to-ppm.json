@@ -1,0 +1,63 @@
+{
+  "generatedFrom": "legacy CropBinary lib/formulas/{target-optimizer,ppm-converter}.ts (verbatim math; only import paths rewritten)",
+  "purpose": "Golden master for the Rust calc-engine port. Assert Rust reproduces these within a tight tolerance.",
+  "constants": {
+    "P2O5_TO_P": 0.4364602764,
+    "K2O_TO_K": 0.8301472547,
+    "EPSILON": 1e-9,
+    "DEFAULT_LAMBDA": 0.000001,
+    "LIQUID_SCALING_FACTOR": 10000
+  },
+  "fn": "convertPercentValueToPpm",
+  "cases": [
+    {
+      "input": {
+        "percentValue": 10,
+        "gramsPerLiter": 1
+      },
+      "output": 100
+    },
+    {
+      "input": {
+        "percentValue": 10,
+        "gramsPerLiter": 2
+      },
+      "output": 200
+    },
+    {
+      "input": {
+        "percentValue": 45,
+        "gramsPerLiter": 1
+      },
+      "output": 450
+    },
+    {
+      "input": {
+        "percentValue": 0,
+        "gramsPerLiter": 5
+      },
+      "output": 0
+    },
+    {
+      "input": {
+        "percentValue": null,
+        "gramsPerLiter": 5
+      },
+      "output": null
+    },
+    {
+      "input": {
+        "percentValue": 10,
+        "gramsPerLiter": 0
+      },
+      "output": 0
+    },
+    {
+      "input": {
+        "percentValue": 3.5,
+        "gramsPerLiter": 1.2
+      },
+      "output": 42
+    }
+  ]
+}

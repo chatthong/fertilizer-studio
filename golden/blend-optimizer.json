@@ -1,0 +1,316 @@
+{
+  "generatedFrom": "legacy CropBinary lib/formulas/{target-optimizer,ppm-converter}.ts (verbatim math; only import paths rewritten)",
+  "purpose": "Golden master for the Rust calc-engine port. Assert Rust reproduces these within a tight tolerance.",
+  "constants": {
+    "P2O5_TO_P": 0.4364602764,
+    "K2O_TO_K": 0.8301472547,
+    "EPSILON": 1e-9,
+    "DEFAULT_LAMBDA": 0.000001,
+    "LIQUID_SCALING_FACTOR": 10000
+  },
+  "fn": "optimizeBlendShares",
+  "cases": [
+    {
+      "name": "single-product-exact-N",
+      "input": {
+        "products": [
+          {
+            "id": "A",
+            "nutrientProfile": {
+              "N_NO3": 10
+            }
+          }
+        ],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 100
+          }
+        ]
+      },
+      "output": {
+        "basis": "mass",
+        "usageByProduct": {
+          "A": 0.9999999999
+        },
+        "totalUsage": 0.9999999999,
+        "predictedPpmByNutrient": {
+          "N_NO3": 99.99999998999999
+        }
+      }
+    },
+    {
+      "name": "two-products-two-targets-with-oxide",
+      "input": {
+        "products": [
+          {
+            "id": "A",
+            "nutrientProfile": {
+              "N_NO3": 10
+            }
+          },
+          {
+            "id": "B",
+            "nutrientProfile": {
+              "K2O": 30
+            }
+          }
+        ],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 150
+          },
+          {
+            "nutrientKey": "K2O",
+            "targetPpm": 200
+          }
+        ]
+      },
+      "output": {
+        "basis": "mass",
+        "usageByProduct": {
+          "A": 1.49999999985,
+          "B": 0.666666666655918
+        },
+        "totalUsage": 2.166666666505918,
+        "predictedPpmByNutrient": {
+          "N_NO3": 149.999999985,
+          "K2O": 166.0294509373231
+        }
+      }
+    },
+    {
+      "name": "over-determined-least-squares",
+      "input": {
+        "products": [
+          {
+            "id": "A",
+            "nutrientProfile": {
+              "N_NO3": 10,
+              "P2O5": 5
+            }
+          }
+        ],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 100
+          },
+          {
+            "nutrientKey": "P2O5",
+            "targetPpm": 50
+          }
+        ]
+      },
+      "output": {
+        "basis": "mass",
+        "usageByProduct": {
+          "A": 0.9999999999045459
+        },
+        "totalUsage": 0.9999999999045459,
+        "predictedPpmByNutrient": {
+          "N_NO3": 99.9999999904546,
+          "P2O5": 21.823013817916905
+        }
+      }
+    },
+    {
+      "name": "weighted-targets",
+      "input": {
+        "products": [
+          {
+            "id": "A",
+            "nutrientProfile": {
+              "N_NO3": 10,
+              "P2O5": 5
+            }
+          }
+        ],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 100,
+            "weight": 3
+          },
+          {
+            "nutrientKey": "P2O5",
+            "targetPpm": 50,
+            "weight": 1
+          }
+        ]
+      },
+      "output": {
+        "basis": "mass",
+        "usageByProduct": {
+          "A": 0.9999999999889474
+        },
+        "totalUsage": 0.9999999999889474,
+        "predictedPpmByNutrient": {
+          "N_NO3": 99.99999999889474,
+          "P2O5": 21.8230138197588
+        }
+      }
+    },
+    {
+      "name": "constraint-active-bisection",
+      "input": {
+        "products": [
+          {
+            "id": "A",
+            "nutrientProfile": {
+              "N_NO3": 10,
+              "Na": 5
+            }
+          }
+        ],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 200
+          }
+        ],
+        "maxConstraint": {
+          "nutrientKey": "Na",
+          "maxPpm": 50
+        }
+      },
+      "output": {
+        "basis": "mass",
+        "usageByProduct": {
+          "A": 1.00002
+        },
+        "totalUsage": 1.00002,
+        "predictedPpmByNutrient": {
+          "N_NO3": 100.002,
+          "Na": 50.001
+        }
+      }
+    },
+    {
+      "name": "liquid-basis-with-density",
+      "input": {
+        "products": [
+          {
+            "id": "A",
+            "nutrientProfile": {
+              "N_NO3": 10
+            },
+            "densityKgPerL": 1.2
+          }
+        ],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 100
+          }
+        ],
+        "basis": "liquid"
+      },
+      "output": {
+        "basis": "liquid",
+        "usageByProduct": {
+          "A": 0.0008333333275462963
+        },
+        "totalUsage": 0.0008333333275462963,
+        "predictedPpmByNutrient": {
+          "N_NO3": 99.99999930555555
+        }
+      }
+    },
+    {
+      "name": "three-product-realistic-blend",
+      "input": {
+        "products": [
+          {
+            "id": "CalNit",
+            "nutrientProfile": {
+              "N_NO3": 15.5,
+              "Ca": 19
+            }
+          },
+          {
+            "id": "MKP",
+            "nutrientProfile": {
+              "P2O5": 52,
+              "K2O": 34
+            }
+          },
+          {
+            "id": "KNO3",
+            "nutrientProfile": {
+              "N_NO3": 13,
+              "K2O": 46
+            }
+          }
+        ],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 150
+          },
+          {
+            "nutrientKey": "P2O5",
+            "targetPpm": 50
+          },
+          {
+            "nutrientKey": "K2O",
+            "targetPpm": 200
+          },
+          {
+            "nutrientKey": "Ca",
+            "targetPpm": 120
+          }
+        ]
+      },
+      "output": {
+        "basis": "mass",
+        "usageByProduct": {
+          "CalNit": 0.6421401059245296,
+          "MKP": 0.09156550849304246,
+          "KNO3": 0.3692965821660306
+        },
+        "totalUsage": 1.1030021965836028,
+        "predictedPpmByNutrient": {
+          "N_NO3": 147.54027209988607,
+          "P2O5": 20.781647715701524,
+          "K2O": 166.86682104364368,
+          "Ca": 122.00662012566063
+        }
+      }
+    },
+    {
+      "name": "empty-products-returns-null",
+      "input": {
+        "products": [],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 100
+          }
+        ]
+      },
+      "output": null
+    },
+    {
+      "name": "zero-contribution-returns-null",
+      "input": {
+        "products": [
+          {
+            "id": "A",
+            "nutrientProfile": {
+              "P2O5": 0
+            }
+          }
+        ],
+        "targets": [
+          {
+            "nutrientKey": "N_NO3",
+            "targetPpm": 100
+          }
+        ]
+      },
+      "output": null
+    }
+  ]
+}

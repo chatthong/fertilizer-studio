@@ -1,0 +1,63 @@
+{
+  "generatedFrom": "legacy CropBinary lib/formulas/{target-optimizer,ppm-converter}.ts (verbatim math; only import paths rewritten)",
+  "purpose": "Golden master for the Rust calc-engine port. Assert Rust reproduces these within a tight tolerance.",
+  "constants": {
+    "P2O5_TO_P": 0.4364602764,
+    "K2O_TO_K": 0.8301472547,
+    "EPSILON": 1e-9,
+    "DEFAULT_LAMBDA": 0.000001,
+    "LIQUID_SCALING_FACTOR": 10000
+  },
+  "fn": "convertOxidePercentToElement",
+  "cases": [
+    {
+      "input": {
+        "nutrientKey": "P2O5",
+        "percentValue": 45
+      },
+      "output": 19.640712438
+    },
+    {
+      "input": {
+        "nutrientKey": "K2O",
+        "percentValue": 60
+      },
+      "output": 49.808835282
+    },
+    {
+      "input": {
+        "nutrientKey": "P2O5",
+        "percentValue": 0
+      },
+      "output": 0
+    },
+    {
+      "input": {
+        "nutrientKey": "P2O5",
+        "percentValue": null
+      },
+      "output": null
+    },
+    {
+      "input": {
+        "nutrientKey": "K2O",
+        "percentValue": 12.5
+      },
+      "output": 10.37684068375
+    },
+    {
+      "input": {
+        "nutrientKey": "N_NO3",
+        "percentValue": 12
+      },
+      "output": 12
+    },
+    {
+      "input": {
+        "nutrientKey": "Ca",
+        "percentValue": 18
+      },
+      "output": 18
+    }
+  ]
+}
