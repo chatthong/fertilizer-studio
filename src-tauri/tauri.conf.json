@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "fertilizer-studio",
+  "productName": "Fertilizer Studio",
   "version": "0.1.0",
   "identifier": "com.fertilizerstudio.app",
   "build": {
@@ -12,9 +12,11 @@
   "app": {
     "windows": [
       {
-        "title": "fertilizer-studio",
-        "width": 800,
-        "height": 600
+        "title": "Fertilizer Studio",
+        "width": 1200,
+        "height": 820,
+        "minWidth": 880,
+        "minHeight": 600
       }
     ],
     "security": {

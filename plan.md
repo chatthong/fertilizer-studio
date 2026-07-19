@@ -147,8 +147,9 @@ Thinnest end-to-end slice that exercises every layer and de-risks the architectu
 - [x] "Browse library" screen lists catalog items (read-only, search + nutrient table)
 - [x] Seeded from **real rescued data** (29 canonicals, 22 variants) — 2 Rust unit tests pass
 - [x] Documented seed/export path: `extract-library.cjs` (dump → `library/library.json`)
+- [x] **UI shell + polished Library view** — sidebar nav, stat tiles, category chips, search, N·P·K table (Tailwind, shadcn-style)
+- [x] Render **visually confirmed** via Vite dev + Playwright (browser fallback shares the same components as the Tauri render)
 - [ ] **GitHub library pull → cache → offline** — remaining Phase 1 item (embedded seed works offline now; runtime pull not yet wired)
-- [~] Visual render not screenshot-confirmed (macOS window-focus/permission blocked the grab); backend+data unit-verified, invoke path standard
 
 ### Phase 2 — Calculation engine crate (Rust)
 Port the crown-jewel math into an isolated, tested crate.
