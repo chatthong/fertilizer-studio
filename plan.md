@@ -245,6 +245,14 @@ Port the crown-jewel math into an isolated, tested crate.
 
 ## 9. Progress log
 
+- **2026-07-19** — **UI built + product detail drawer.** App shell (sidebar + Library
+  view: stats, category chips, search, N·P·K table) and a click-through detail drawer
+  (full 16-nutrient profile, physical props, incompatibility warnings, market pricing).
+  Full canonical + pricing now in SQLite (`variant_detail` command, schema v2 migration);
+  Rust unit tests pass (list + detail). Rendering verified via Vite + Playwright on real data.
+  Remaining Phase 1: GitHub library sync.
+
+
 - **2026-07-19** — Brainstormed direction; chose Tauri+Rust rewrite, new public repo,
   legacy stays private. Plan created. Decided name = **Fertilizer Studio**, license =
   **GPL-3.0**. Launched the "Port Atlas" multi-agent workflow to map the surviving
